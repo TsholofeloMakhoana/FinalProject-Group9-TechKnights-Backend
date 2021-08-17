@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - School Management System(PTA)</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <!-- end: GOOGLE FONTS -->
+    <!-- start: MAIN CSS -->
+    <link rel="stylesheet" href="~/cssjs/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/cssjs/vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/cssjs/vendor/themify-icons/themify-icons.min.css">
+    <link href="~/cssjs/vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
+    <link href="~/cssjs/vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
+    <link href="~/cssjs/vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
+    <!-- end: MAIN CSS -->
+    <!-- start: CLIP-TWO CSS -->
+
+    <link rel="stylesheet" href="~/cssjs/assets/css/styles.css">
+    <link rel="stylesheet" href="~/cssjs/assets/css/plugins.css">
+
+    <link rel="stylesheet" href="~/cssjs/assets/css/themes/theme-3.css"  id="skin_color" />
+</head>
+<body>
+    <div id="app">
+
+        @Html.Partial("Partial/_Navbar")
+        <div class="app-content">
+            <!-- start: TOP NAVBAR -->
+            @Html.Partial("Partial/_Header")
+
+            <div class="main-content">
+                <div class="wrap-content container" id="container">
+                    @RenderBody()
+                </div>
+             </div>
+            </div>
+        <!-- start: FOOTER -->
+        @Html.Partial("Partial/_Footer")
+        @Html.Partial("Partial/_Rightsidebar")
+        @Html.Partial("Partial/_settingbar")
+    </div>
+
+    <!-- start: MAIN JAVASCRIPTS -->
+    <script src="~/cssjs/vendor/jquery/jquery.min.js"></script>
+    <script src="~/cssjs/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/cssjs/vendor/modernizr/modernizr.js"></script>
+    <script src="~/cssjs/vendor/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/cssjs/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/cssjs/vendor/switchery/switchery.min.js"></script>
+    <!-- end: MAIN JAVASCRIPTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script src="~/cssjs/vendor/Chart.js/Chart.min.js"></script>
+    <script src="~/cssjs/vendor/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- start: CLIP-TWO JAVASCRIPTS -->
+    <script src="~/cssjs/assets/js/main.js"></script>
+    <!-- start: JavaScript Event Handlers for this page -->
+    <script src="~/cssjs/assets/js/index.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+            Index.init();
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
