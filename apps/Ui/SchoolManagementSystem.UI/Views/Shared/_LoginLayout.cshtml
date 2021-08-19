@@ -9,15 +9,15 @@
 <!-- start: HEAD -->
 <!-- start: HEAD -->
 <head>
-    <title>Collage Management Sytem</title>
+    <title>School Management Sytem</title>
     <!-- start: META -->
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta content="" name="Colage Management System" />
-    <meta content="" name="Goodwill Maswanganye" />
+    <meta content="" name="School Management System" />
+    <meta content="" name="Tsholofelo makhoana" />
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="~/cssjs/vendor/bootstrap/css/bootstrap.min.css">
@@ -43,12 +43,12 @@
             <div class="box-login">
                 @RenderBody()
 
-                <div class="copyright">
-                    &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> Collage Manegement Sytem</span>. <span>All rights reserved</span>
+                <div class="pull-left">
+                    &copy; <span class="current-year"></span><span class="text-bold text-uppercase">SchoolManagementSystem </span>. <span>TechKnight Team</span>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
 
     <script src="~/cssjs/vendor/jquery/jquery.min.js"></script>
     <script src="~/cssjs/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -56,17 +56,17 @@
     <script src="~/cssjs/vendor/jquery-cookie/jquery.cookie.js"></script>
     <script src="~/cssjs/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="~/cssjs/vendor/switchery/switchery.min.js"></script>
-        
-    <script src="~/cssjs/vendor/jquery-validation/jquery.validate.min.js"></script> 
+
+    <script src="~/cssjs/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="~/cssjs/assets/js/main.js"></script>
     <script src="~/cssjs/assets/js/login.js"></script>
     <script>
-			jQuery(document).ready(function() {
-				Main.init();
-				Login.init();
-			});
+        jQuery(document).ready(function () {
+            Main.init();
+            Login.init();
+        });
     </script>
-
+    @RenderSection("Scripts", required: false)
 </body>
 <!-- end: BODY -->
 </html>

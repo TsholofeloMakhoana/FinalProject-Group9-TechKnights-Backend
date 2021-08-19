@@ -211,3 +211,6 @@ C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\V
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Teacher\Edit.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Teacher\Index.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Teacher\List.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Grade\Index.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Subject\Index.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ForgotPassword.cshtml.g.cs
