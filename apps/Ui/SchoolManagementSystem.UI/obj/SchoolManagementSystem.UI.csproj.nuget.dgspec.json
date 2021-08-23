@@ -4,6 +4,70 @@
     "C:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\SchoolManagementSystem.UI.csproj": {}
   },
   "projects": {
+    "C:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.Domain\\SchoolManagementSystem.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.Domain\\SchoolManagementSystem.Domain.csproj",
+        "projectName": "SchoolManagementSystem.Domain",
+        "projectPath": "C:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.Domain\\SchoolManagementSystem.Domain.csproj",
+        "packagesPath": "C:\\Users\\Tshepang Messi 10\\.nuget\\packages\\",
+        "outputPath": "C:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Tshepang Messi 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj": {
+                "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj"
+              },
+              "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj": {
+                "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\SchoolManagementSystem.UI.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -30,7 +94,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.Domain\\SchoolManagementSystem.Domain.csproj": {
+                "projectPath": "C:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.Domain\\SchoolManagementSystem.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -82,6 +150,252 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj",
+        "projectName": "SchoolManagementSystem.Data",
+        "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj",
+        "packagesPath": "C:\\Users\\Tshepang Messi 10\\.nuget\\packages\\",
+        "outputPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Tshepang Messi 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj": {
+                "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Z.EntityFramework.Extensions.EFCore": {
+              "target": "Package",
+              "version": "[5.2.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj",
+        "projectName": "SchoolManagementSystem.Feed",
+        "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj",
+        "packagesPath": "C:\\Users\\Tshepang Messi 10\\.nuget\\packages\\",
+        "outputPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Tshepang Messi 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj": {
+                "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj",
+        "projectName": "SchoolManagementSystem.Models",
+        "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj",
+        "packagesPath": "C:\\Users\\Tshepang Messi 10\\.nuget\\packages\\",
+        "outputPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Tshepang Messi 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj",
+        "projectName": "SchoolManagementSystem.Shared",
+        "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj",
+        "packagesPath": "C:\\Users\\Tshepang Messi 10\\.nuget\\packages\\",
+        "outputPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Tshepang Messi 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

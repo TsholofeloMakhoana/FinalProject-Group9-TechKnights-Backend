@@ -1663,6 +1663,16 @@
         "runtime": {
           "lib/netstandard2.1/Z.EntityFramework.Extensions.EFCore.dll": {}
         }
+      },
+      "SchoolManagementSystem.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/SchoolManagementSystem.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SchoolManagementSystem.Models.dll": {}
+        }
       }
     }
   },
@@ -6067,11 +6077,17 @@
         "z.entityframework.extensions.efcore.5.2.6.nupkg.sha512",
         "z.entityframework.extensions.efcore.nuspec"
       ]
+    },
+    "SchoolManagementSystem.Models/1.0.0": {
+      "type": "project",
+      "path": "../SchoolManagementSystem.Models/SchoolManagementSystem.Models.csproj",
+      "msbuildProject": "../SchoolManagementSystem.Models/SchoolManagementSystem.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.EntityFrameworkCore >= 5.0.9",
+      "SchoolManagementSystem.Models >= 1.0.0",
       "Z.EntityFramework.Extensions.EFCore >= 5.2.6"
     ]
   },
@@ -6105,7 +6121,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj": {
+              "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

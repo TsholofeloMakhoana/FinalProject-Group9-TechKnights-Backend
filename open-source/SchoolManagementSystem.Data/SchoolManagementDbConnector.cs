@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Microsoft.EntityFrameworkCore;
+using SchoolManagementSystem.Models;
+
+
 
 namespace SchoolManagementSystem.Data
 {
@@ -13,9 +12,14 @@ namespace SchoolManagementSystem.Data
         {
 
         }
-
         #region Database Models
 
+        public DbSet<StudentData> StudentData { get; set; }
+        public DbSet<StudentAddressData> StudentAddressData { get; set; }
+        public DbSet<ParentData> ParentData { get; set; }
+        public DbSet<ParentAddressData> ParentAddressData { get; set; }
+        public DbSet<TeacherData> TeacherData { get; set; }
+        public DbSet<TeacherAddressData> TeacherAddressData { get; set; }
 
         #endregion
     }

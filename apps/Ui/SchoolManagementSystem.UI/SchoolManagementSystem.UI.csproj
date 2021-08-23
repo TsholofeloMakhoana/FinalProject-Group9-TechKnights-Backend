@@ -33,4 +33,8 @@
     <Folder Include="wwwroot\cssjs\assets\fonts\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolManagementSystem.Domain\SchoolManagementSystem.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

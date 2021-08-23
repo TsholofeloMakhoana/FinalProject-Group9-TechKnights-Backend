@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystem.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,27 +10,34 @@ namespace SchoolManagementSystem.UI.Controllers
 {
     public class StudentController : Controller
     {
-        // GET: StudentController
+
+
+        #region ctr
+        private readonly IStudentService _studentService;
+        public StudentController(IStudentService studentService)
+        {
+            _studentService = studentService;
+        }
+        #endregion
+
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: StudentController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: StudentController/Create
+   
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: StudentController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+      
+        [HttpPost,ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
             try
@@ -42,15 +50,14 @@ namespace SchoolManagementSystem.UI.Controllers
             }
         }
 
-        // GET: StudentController/Edit/5
+
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: StudentController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+    
+        [HttpPost,ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
         {
             try

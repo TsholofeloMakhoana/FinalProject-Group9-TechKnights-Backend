@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\open-source\SchoolManagementSystem.Feed\SchoolManagementSystem.Feed.csproj" />
+    <ProjectReference Include="..\..\..\open-source\SchoolManagementSystem.Shared\SchoolManagementSystem.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

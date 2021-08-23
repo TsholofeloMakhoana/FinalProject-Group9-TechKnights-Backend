@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolManagementSystem.Shar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolManagementSystem.Notification", "..\open-source\SchoolManagementSystem.Notification\SchoolManagementSystem.Notification.csproj", "{DB4EEB17-227D-4DAE-8C7F-AA00EC7C5DE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.UI", "..\apps\Ui\SchoolManagementSystem.UI\SchoolManagementSystem.UI.csproj", "{661EB27C-962D-4DA5-9774-64F54EAD6F8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolManagementSystem.UI", "..\apps\Ui\SchoolManagementSystem.UI\SchoolManagementSystem.UI.csproj", "{661EB27C-962D-4DA5-9774-64F54EAD6F8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.Feed", "..\open-source\SchoolManagementSystem.Feed\SchoolManagementSystem.Feed.csproj", "{BD69FD16-0FA7-446E-A978-389EDA09752D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{661EB27C-962D-4DA5-9774-64F54EAD6F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{661EB27C-962D-4DA5-9774-64F54EAD6F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{661EB27C-962D-4DA5-9774-64F54EAD6F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD69FD16-0FA7-446E-A978-389EDA09752D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD69FD16-0FA7-446E-A978-389EDA09752D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD69FD16-0FA7-446E-A978-389EDA09752D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD69FD16-0FA7-446E-A978-389EDA09752D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{D4F051A9-C4C5-49FB-9C08-DAE5B52A1FE6} = {096BF08E-C2B7-45FD-AE2F-16F2C665D51B}
 		{DB4EEB17-227D-4DAE-8C7F-AA00EC7C5DE2} = {096BF08E-C2B7-45FD-AE2F-16F2C665D51B}
 		{661EB27C-962D-4DA5-9774-64F54EAD6F8A} = {64670D67-5008-43D6-B79B-915DDA439938}
+		{BD69FD16-0FA7-446E-A978-389EDA09752D} = {096BF08E-C2B7-45FD-AE2F-16F2C665D51B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {522A46D4-5914-48D5-A7DB-FC7DB25C9C35}

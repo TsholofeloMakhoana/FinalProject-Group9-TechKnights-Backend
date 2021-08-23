@@ -214,3 +214,14 @@ C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\V
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Grade\Index.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Subject\Index.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ForgotPassword.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\Z.EntityFramework.Extensions.EFCore.dll
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Data.dll
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Domain.dll
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Feed.dll
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Models.dll
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Shared.dll
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Domain.pdb
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Data.pdb
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Feed.pdb
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Models.pdb
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Shared.pdb

@@ -1,13 +1,11 @@
 ﻿
-
-
 namespace SchoolManagementSystem.Data
 {
     public interface IRepositoryBase<T>  where T : class
     {
         T Create(T tentity);
 
-        T Update(T tentity);
+        object Update(T tentity);
 
         bool Delete(int id);
 
