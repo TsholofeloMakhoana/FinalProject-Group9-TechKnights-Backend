@@ -1,5 +1,6 @@
 ﻿using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Models;
+using System.Collections.Generic;
 
 namespace SchoolManagementSystem.Feed
 {
@@ -7,6 +8,11 @@ namespace SchoolManagementSystem.Feed
     {    
         public StudentRepository(SchoolManagementDbConnector schoolManagementDbConnector) : base(schoolManagementDbConnector)
         {     
+        }
+
+        public List<StudentData> GetStudents()
+        {
+            throw new System.NotImplementedException();
         }
     }
 

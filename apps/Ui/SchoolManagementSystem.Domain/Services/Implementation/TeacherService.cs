@@ -5,6 +5,7 @@ using SchoolManagementSystem.Feed;
 using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Shared;
 using System;
+using System.Collections.Generic;
 
 namespace SchoolManagementSystem.Domain.Services
 {
@@ -60,6 +61,20 @@ namespace SchoolManagementSystem.Domain.Services
             catch (Exception ex)
             {
                 return DatabaseErrors.ErrorOccured;
+            }
+            return null;
+        }
+
+        public List<TeacherViewModel> GetTeachers()
+        {
+            try
+            {
+             // var getTeacher = 
+
+            }
+            catch(Exception ex)
+            {
+                return null;
             }
             return null;
         }

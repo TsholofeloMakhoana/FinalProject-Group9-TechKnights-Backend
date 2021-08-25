@@ -225,3 +225,9 @@ C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolM
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Feed.pdb
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Models.pdb
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Shared.pdb
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\StudentAdmin\Views\Student\Assignment.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\StudentAdmin\Views\Student\Exam.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\StudentAdmin\Views\Student\Finance.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\StudentAdmin\Views\Student\Index.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\StudentAdmin\Views\Student\StudentInformation.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\StudentAdmin\Views\Student\StudentMessage.cshtml.g.cs

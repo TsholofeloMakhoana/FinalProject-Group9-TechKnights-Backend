@@ -25,7 +25,7 @@ namespace SchoolManagementSystem.Domain.Services
         {          
             try
             {
-                var modelValidation = GenericLogic.ValidateString(model);
+                var modelValidation = GenericLogic.ValidateString(model.genericViewModel);
                 if (modelValidation != "OK")
                 {
                     var vModel = JsonConvert.DeserializeObject<StudentData>(JsonConvert.SerializeObject(model));

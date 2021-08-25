@@ -30,6 +30,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\ParentAdmin\Controllers\" />
+    <Folder Include="Areas\ParentAdmin\Data\" />
+    <Folder Include="Areas\ParentAdmin\Models\" />
+    <Folder Include="Areas\ParentAdmin\Views\" />
+    <Folder Include="Areas\StudentAdmin\Data\" />
+    <Folder Include="Areas\StudentAdmin\Models\" />
+    <Folder Include="Areas\TeacherAdmin\Controllers\" />
+    <Folder Include="Areas\TeacherAdmin\Data\" />
+    <Folder Include="Areas\TeacherAdmin\Models\" />
+    <Folder Include="Areas\TeacherAdmin\Views\" />
     <Folder Include="wwwroot\cssjs\assets\fonts\" />
   </ItemGroup>
 
