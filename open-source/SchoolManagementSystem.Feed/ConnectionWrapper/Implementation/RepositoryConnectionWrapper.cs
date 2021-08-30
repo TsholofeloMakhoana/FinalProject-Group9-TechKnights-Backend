@@ -38,6 +38,14 @@ namespace SchoolManagementSystem.Feed
         public IAddressRepository AddressData => _addressData ??= new AddressRepository(_schoolManagementDbConnector);
         #endregion
 
+
+
+        private IGradeRepository _gradeData;
+        public IGradeRepository GradeData => _gradeData ??= new GradeRepository(_schoolManagementDbConnector);
+
+        private IModuleRepository _moduleData;
+        public IModuleRepository ModuleData => _moduleData ??= new ModuleRepository(_schoolManagementDbConnector);
+
         public int Save()
         {
             throw new System.NotImplementedException();

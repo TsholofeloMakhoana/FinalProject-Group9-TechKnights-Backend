@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SchoolManagementSystem.Domain.Data;
 using SchoolManagementSystem.Domain.Engine;
 using SchoolManagementSystem.Feed;
 using SchoolManagementSystem.Models;
@@ -39,7 +38,7 @@ namespace SchoolManagementSystem.Domain.Services
                                 {
                                     var stdAddress = new ParentAddressData()
                                     {
-                                        ParantId = createParent.ParantId,
+                                        ParantId = createParent.ParentId,
                                         AddressId = createAddress.AddressId
                                     };                                   
                                     var saveAddresses = _connectionWrapper.ParentAddressData.Create(stdAddress);

@@ -1688,6 +1688,16 @@
         "runtime": {
           "bin/placeholder/SchoolManagementSystem.Models.dll": {}
         }
+      },
+      "SchoolManagementSystem.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/SchoolManagementSystem.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SchoolManagementSystem.Shared.dll": {}
+        }
       }
     }
   },
@@ -6106,11 +6116,18 @@
       "type": "project",
       "path": "../SchoolManagementSystem.Models/SchoolManagementSystem.Models.csproj",
       "msbuildProject": "../SchoolManagementSystem.Models/SchoolManagementSystem.Models.csproj"
+    },
+    "SchoolManagementSystem.Shared/1.0.0": {
+      "type": "project",
+      "path": "../SchoolManagementSystem.Shared/SchoolManagementSystem.Shared.csproj",
+      "msbuildProject": "../SchoolManagementSystem.Shared/SchoolManagementSystem.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "SchoolManagementSystem.Data >= 1.0.0"
+      "Microsoft.EntityFrameworkCore >= 5.0.9",
+      "SchoolManagementSystem.Data >= 1.0.0",
+      "SchoolManagementSystem.Shared >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6146,6 +6163,9 @@
           "projectReferences": {
             "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj": {
               "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj"
+            },
+            "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj": {
+              "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj"
             }
           }
         }
@@ -6159,6 +6179,12 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[5.0.9, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

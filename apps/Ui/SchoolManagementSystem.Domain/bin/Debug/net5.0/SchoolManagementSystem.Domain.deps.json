@@ -9,6 +9,7 @@
       "SchoolManagementSystem.Domain/1.0.0": {
         "dependencies": {
           "SchoolManagementSystem.Feed": "1.0.0",
+          "SchoolManagementSystem.Notification": "1.0.0",
           "SchoolManagementSystem.Shared": "1.0.0"
         },
         "runtime": {
@@ -1042,7 +1043,9 @@
       },
       "SchoolManagementSystem.Feed/1.0.0": {
         "dependencies": {
-          "SchoolManagementSystem.Data": "1.0.0"
+          "Microsoft.EntityFrameworkCore": "5.0.9",
+          "SchoolManagementSystem.Data": "1.0.0",
+          "SchoolManagementSystem.Shared": "1.0.0"
         },
         "runtime": {
           "SchoolManagementSystem.Feed.dll": {}
@@ -1051,6 +1054,11 @@
       "SchoolManagementSystem.Models/1.0.0": {
         "runtime": {
           "SchoolManagementSystem.Models.dll": {}
+        }
+      },
+      "SchoolManagementSystem.Notification/1.0.0": {
+        "runtime": {
+          "SchoolManagementSystem.Notification.dll": {}
         }
       },
       "SchoolManagementSystem.Shared/1.0.0": {
@@ -1826,6 +1834,11 @@
       "sha512": ""
     },
     "SchoolManagementSystem.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SchoolManagementSystem.Notification/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,10 +1,9 @@
 ﻿
-@model SchoolManagementSystem.UI.Models.StudentViewModel
+@model IEnumerable<SchoolManagementSystem.Shared.GradeViewModel>
 @{
     ViewData["Title"] = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 
 
@@ -17,40 +16,42 @@
 </section>
 
 <div class="container-fluid container-fullw bg-white">
-    <div class="row">     
-        <div class="col-md-12">            
+    <div class="row">
+        <div class="col-md-12">
             <div class="panel-body">
                 <button class="btn btn-primary btn-o pull-left" data-toggle="modal" data-target=".bs-example-modal-lg">
                     Create Grades
                 </button>
             </div>
             <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
-                <thead>
-                    <tr>
-                        <th>Browser</th>
-                        <th class="hidden-xs">Creator</th>
-                        <th>
-                            Cost (
-                            USD)
-                        </th>
-                        <th class="hidden-xs"> Software license</th>
-                        <th>
-                            Current
-                            layout engine
-                        </th>
-                    </tr>
-                </thead>
+                <tr>
+                    <th>#GradeId</th>
+                    <th>Grade</th>
+                    <th>Grade Point</th>
+                    <th> Total Fees</th>
+                    <th class="hidden-xs"> Description</th>
+                    <th class="hidden-xs"> DateCreated</th>
+                    <th class="hidden-xs"> Created By </th>
+                    <th></th>
+                </tr>
                 <tbody>
+                    @foreach (var item in Model)
+                    {
                     <tr>
-                        <td>Amaya</td>
-                        <td class="hidden-xs">
-                            W3C,
-                            INRIA
+                        <td>@item.GradeId</td>
+                        <td> @item.Grade</td>
+                        <td>@item.GradePoint</td>
+                        <td>$@item.TotalFees</td>
+                        <td class="hidden-xs">@item.GradeDescrption</td>
+                        <td class="hidden-xs">@item.DateCreated</td>
+                        <td class="hidden-xs">@item.CreatedBy</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.GradeId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.GradeId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.GradeId })
                         </td>
-                        <td>Free</td>
-                        <td class="hidden-xs">W3C</td>
-                        <td>Amaya</td>
                     </tr>
+                    }
 
                 </tbody>
             </table>
@@ -69,21 +70,17 @@
                 <h4 class="modal-title" id="myModalLabel">Create Grade</h4>
             </div>
             <div class="modal-body">
-
-
-
-
                 <div class="container-fluid container-fullw bg-white">
                     <div class="row">
 
-                        @using (Html.BeginForm("Create", "Student", new { @class = "smart-wizard", role = "form" }))
+                        @using (Html.BeginForm("Create", "Grade", new { @class = "smart-wizard", role = "form" }))
                         {
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <fieldset>
                                         <legend>
-                                           Creat Grade
+                                            Creat Grade
                                         </legend>
                                         <div class="form-group">
                                             <div class="row">
@@ -92,7 +89,7 @@
                                                         <label>
                                                             Grade
                                                         </label>
-                                                        <input type="text" placeholder="Enter grades" class="form-control" name="firstName" />
+                                                        <input type="text" placeholder="Enter grades" class="form-control" name="Grade" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -100,26 +97,27 @@
                                                         <label>
                                                             Grade Points
                                                         </label>
-                                                        <input type="text" placeholder="Enter points" class="form-control" name="firstName" />
+                                                        <input type="text" placeholder="Enter points" class="form-control" name="GradePoint" />
 
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label ">
-                                                         Grade Fees
+                                                            Grade Fees
                                                         </label>
-                                                        <input type="text" placeholder="Enter fees" class="form-control" name="firstName" />
+                                                        <input type="text" placeholder="Enter fees" class="form-control" name="TotalFees" />
                                                     </div>
-                                                </div>                                           
-                                                
+                                                </div>
+
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="control-label">
                                                             Grade Description
                                                         </label>
-                                                        <textarea placeholder="Grade Description" id="form-field-22" class="form-control"></textarea> </div>
-                                                </div>                                              
+                                                        <textarea placeholder="Grade Description" id="form-field-22" name="GradeDescrption" class="form-control"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -137,7 +135,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary btn-o" data-dismiss="modal">
                     Close
-                </button>              
+                </button>
             </div>
         </div>
     </div>

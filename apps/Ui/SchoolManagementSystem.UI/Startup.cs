@@ -1,3 +1,4 @@
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,7 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SchoolManagementSystem.Data;
 using SchoolManagementSystem.UI.Data;
+using SchoolManagementSystem.UI.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +37,15 @@ namespace SchoolManagementSystem.UI
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDbContext<SchoolManagementDbConnector>(options => options.UseSqlServer(Configuration.GetConnectionString("SchoolManagementSystemUIContextConnection")));
+            services.AddControllers();
             services.AddControllersWithViews();
         }
-
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new DomainModule());
+            builder.RegisterModule(new InfrastructureModule());
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

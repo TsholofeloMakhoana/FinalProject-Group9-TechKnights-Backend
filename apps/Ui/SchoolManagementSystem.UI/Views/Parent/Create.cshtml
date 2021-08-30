@@ -1,6 +1,6 @@
 ﻿
 
-@model SchoolManagementSystem.UI.Models.StudentViewModel
+@model SchoolManagementSystem.Shared.StudentViewModel
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,15 +18,11 @@
 
 <div class="container-fluid container-fullw bg-white">
     <div class="row">
-
         @using (Html.BeginForm("Create", "Student", new { @class = "smart-wizard", role = "form" }))
         {
-
             <div class="row">
                 <div class="col-md-6">
                     <fieldset>
-
-
                         <legend>
                             Personal Information
                         </legend>
@@ -79,8 +75,8 @@
                                         </label>
                                         @Html.DropDownListFor(model => model.IsSouthAfrican, new List<SelectListItem>()
                                         {
-                                           new SelectListItem() { Text = "Yes", Value = "True" },
-                                           new SelectListItem() { Text = "No", Value = "False"}
+                                           new SelectListItem() { Text = "Yes", Value = "1" },
+                                           new SelectListItem() { Text = "No", Value = "0"}
                                         }, "Select.....", new { @class = "form-control" })
 
                                         @*@Html.DropDownList("IsSouthAfrican", Html.GetEnumSelectList<FuneralManagementSystem.Models.CommonDropdownbox.IsSouthAfrican>(), "Is SouthAfrican", new { @class = "form-control" })*@
@@ -91,7 +87,7 @@
                                         <label class="control-label">
                                             ID/Passport
                                         </label>
-                                        @Html.TextBoxFor(m => m.PassportNo, new { @class = "form-control" })
+                                        @Html.TextBoxFor(m => m.IdOrPassport, new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -157,7 +153,7 @@
                                     <label>
                                         Address Line 1*
                                     </label>
-                                    <input id="autocomplete" name="PhysicalAddress" placeholder="Enter your address" onFocus="geolocate()" type="text" class="form-control" required />
+                                    <input id="autocomplete" name="PhysicalAddress" onFocus="geolocate()" placeholder="Enter your address" type="text" class="form-control" />
                                 </div>
                             </div>
 
@@ -166,7 +162,7 @@
                                     <label>
                                         Country
                                     </label>
-                                    <input id="country" name="PhysicalCountry" disabled class="form-control" required readonly />
+                                    <input id="country" name="PhysicalCountry" disabled class="form-control" readonly />
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -174,7 +170,7 @@
                                     <label class="control-label">
                                         Province
                                     </label>
-                                    <input class="form-control" name="PhysicalProvince" id="administrative_area_level_1" disabled readonly />
+                                    <input class="form-control" name="PhysicalProvince" id="administrative_area_level_1" readonly />
                                 </div>
                             </div>
 
@@ -183,7 +179,7 @@
                                     <label>
                                         City
                                     </label>
-                                    <input class="form-control" name="PhysicalCity" id="locality" disabled required readonly />
+                                    <input class="form-control" name="PhysicalCity" id="locality" readonly />
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -191,7 +187,7 @@
                                     <label class="control-label">
                                         Street Number
                                     </label>
-                                    <input id="street_number" name="PhysicalAddressLine2" class="form-control" disabled />
+                                    <input id="street_number" name="PhysicalAddressLine2" class="form-control" readonly />
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -199,7 +195,7 @@
                                     <label class="control-label">
                                         Street Name
                                     </label>
-                                    <input id="route" name="PhysicalAddressLine3" class="form-control" disabled />
+                                    <input id="route" name="PhysicalAddressLine3" class="form-control" readonly />
                                 </div>
                             </div>
 
@@ -216,7 +212,7 @@
                                     <label class="control-label">
                                         Postal Code*
                                     </label>
-                                    <input id="postal_code" name="PhysicalPostalCode" class="form-control" disabled readonly />
+                                    <input id="postal_code" name="PhysicalPostalCode" class="form-control" readonly />
                                     @*@Html.TextBoxFor(m => m.PhysicalPostalCode, new { @class = "form-control", required = true, type = "number" })*@
                                 </div>
                             </div>
@@ -291,7 +287,13 @@
                                         <label class="control-label">
                                             Communication Method
                                         </label>
-                                        @*@Html.TextBoxFor(m => m.ContactPersonCelNr, new { @class = "form-control" })*@
+                                        @Html.DropDownListFor(model => model.CommunicationMethod, new List<SelectListItem>()
+                                      {
+                                         new SelectListItem() { Text = "Email", Value = "Email" },
+                                         new SelectListItem() { Text = "Phone", Value = "Phone"},
+                                          new SelectListItem() { Text = "Call", Value = "Call"},
+                                          new SelectListItem() { Text = "Other", Value = "Other"}
+                                      }, "Communication Method", new { @class = "form-control" })
                                     </div>
                                 </div>
                             </div>
@@ -405,5 +407,5 @@
         }
     </div>
 </div>
-<script src="~/Scripts/GetTheAddress.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtc20pt9oDAG-NX1ktEYrtyCZ0mA-7tK8&libraries=places&callback=initAutocomplete" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGTCuQbgKFn9O16P6BE-A-gaGSiMTEtI&libraries=places&callback=initAutocomplete" async defer></script>
+<script src="~/js/GetTheAddress.js"></script>

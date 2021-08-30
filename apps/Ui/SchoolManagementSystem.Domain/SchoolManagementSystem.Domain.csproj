@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\open-source\SchoolManagementSystem.Feed\SchoolManagementSystem.Feed.csproj" />
+    <ProjectReference Include="..\..\..\open-source\SchoolManagementSystem.Notification\SchoolManagementSystem.Notification.csproj" />
     <ProjectReference Include="..\..\..\open-source\SchoolManagementSystem.Shared\SchoolManagementSystem.Shared.csproj" />
   </ItemGroup>
 

@@ -1,5 +1,5 @@
 ﻿
-using SchoolManagementSystem.Domain.Data;
+using SchoolManagementSystem.Shared;
 using System.Collections.Generic;
 
 namespace SchoolManagementSystem.Domain.Services

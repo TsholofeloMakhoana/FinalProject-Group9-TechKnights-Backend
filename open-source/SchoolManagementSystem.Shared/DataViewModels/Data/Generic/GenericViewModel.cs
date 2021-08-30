@@ -2,8 +2,9 @@
 
 
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SchoolManagementSystem.Domain.Data
+namespace SchoolManagementSystem.Shared
 {
     public class GenericViewModel
     {
@@ -14,7 +15,8 @@ namespace SchoolManagementSystem.Domain.Data
         public string Gender { get; set; }
         public string MaritalStatus { get; set; }
         public bool IsSouthAfrican { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? DateOfBirth { get; set; }
         public bool IsActive { get; set; }
         public string IdOrPassport { get; set; }    
         public string HomeLanguage { get; set; }
@@ -23,10 +25,12 @@ namespace SchoolManagementSystem.Domain.Data
         public string HomeTelNumber { get; set; }
         public string FaxNumber { get; set; }
         public string CelPhoneNumber { get; set; }
-        public DateTime DateCreated { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? DateCreated { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime Modified { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? DateModified { get; set; }
         public string ModifiedBy { get; set; }
-        public int CommunicationMethodId { get; set; }
+        public int CommunicationMethod { get; set; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystem.Shared;
 using SchoolManagementSystem.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace SchoolManagementSystem.UI.Controllers
 {
@@ -30,26 +32,45 @@ namespace SchoolManagementSystem.UI.Controllers
             return View();
         }
 
-   
+        #region Create Student
         public ActionResult Create()
         {
             return View();
         }
 
-      
-        [HttpPost,ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Create(StudentViewModel model)
         {
-            try
+            if (model is not null)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                try
+                {
+                    model.ApplicationStatus = Status.InProcess.ToString();
+                    model.StudentNumber = "45909350";
+                   // model.genericViewModel.DateCreated = DateTime.Now;
+                    model.CreatedBy = "SystemAdmin";
+                   // model.genericViewModel.DateOfBirth = DateTime.Now;
 
+                    var create = _studentService.CreateStudent(model);
+                    if (create != null)
+                    {
+                        if (create == HttpStatusCode.OK.ToString())
+                        {
+                            ViewBag.SuccessMessage = "New student has been added successfully.";
+                            return View();
+                        }
+                        ViewBag.ValidationMessage = create;
+                    }                   
+                    return View();
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+            return View();
+        }
+        #endregion
 
         public ActionResult Edit(int id)
         {

@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SchoolManagementSystem.Domain.Data;
 using SchoolManagementSystem.Domain.Engine;
 using SchoolManagementSystem.Feed;
 using SchoolManagementSystem.Models;

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 
-namespace SchoolManagementSystem.UI.Models
+using System.ComponentModel.DataAnnotations;
+
+namespace SchoolManagementSystem.Shared
 {
-    public class SysGenericAddressViewModel
+    public class AddressViewModel
     {
+        [Key]
+        public int AddressId { get; set; }
         public string PhysicalCountry { get; set; }
         public string PhysicalProvince { get; set; }
         public string PhysicalRegion { get; set; }

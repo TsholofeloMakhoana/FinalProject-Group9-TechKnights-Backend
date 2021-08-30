@@ -1,6 +1,6 @@
 ﻿
 
-using SchoolManagementSystem.Domain.Data;
+using SchoolManagementSystem.Shared;
 
 namespace SchoolManagementSystem.Domain.Services
 {

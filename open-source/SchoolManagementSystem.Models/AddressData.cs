@@ -1,8 +1,11 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace SchoolManagementSystem.Models
 {
     public class AddressData
     {
+        [Key]
         public int AddressId { get; set; }
         public string PhysicalCountry { get; set; }
         public string PhysicalProvince { get; set; }

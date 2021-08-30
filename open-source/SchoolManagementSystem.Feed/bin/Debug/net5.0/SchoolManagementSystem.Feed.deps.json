@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v5.0": {
       "SchoolManagementSystem.Feed/1.0.0": {
         "dependencies": {
-          "SchoolManagementSystem.Data": "1.0.0"
+          "Microsoft.EntityFrameworkCore": "5.0.9",
+          "SchoolManagementSystem.Data": "1.0.0",
+          "SchoolManagementSystem.Shared": "1.0.0"
         },
         "runtime": {
           "SchoolManagementSystem.Feed.dll": {}
@@ -1043,6 +1045,11 @@
         "runtime": {
           "SchoolManagementSystem.Models.dll": {}
         }
+      },
+      "SchoolManagementSystem.Shared/1.0.0": {
+        "runtime": {
+          "SchoolManagementSystem.Shared.dll": {}
+        }
       }
     }
   },
@@ -1807,6 +1814,11 @@
       "sha512": ""
     },
     "SchoolManagementSystem.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SchoolManagementSystem.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

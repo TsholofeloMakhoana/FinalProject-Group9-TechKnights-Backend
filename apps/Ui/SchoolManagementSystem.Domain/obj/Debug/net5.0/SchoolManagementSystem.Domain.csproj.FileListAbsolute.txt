@@ -19,3 +19,5 @@ C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.Domain\obj\Debug\net5.0\Sch
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.Domain\obj\Debug\net5.0\SchoolManagementSystem.Domain.dll
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.Domain\obj\Debug\net5.0\ref\SchoolManagementSystem.Domain.dll
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.Domain\obj\Debug\net5.0\SchoolManagementSystem.Domain.pdb
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.Domain\bin\Debug\net5.0\SchoolManagementSystem.Notification.dll
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.Domain\bin\Debug\net5.0\SchoolManagementSystem.Notification.pdb

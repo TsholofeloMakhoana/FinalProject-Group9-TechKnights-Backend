@@ -1,6 +1,6 @@
 ﻿
 
-namespace SchoolManagementSystem.Domain.Data
+namespace SchoolManagementSystem.Shared
 {
     public class ParentViewModel
     {

@@ -1,5 +1,8 @@
 ﻿
 
+using System.Collections.Generic;
+using System.Linq;
+
 namespace SchoolManagementSystem.Data
 {
     public class RepositoryBase<T> where T : class
@@ -41,6 +44,11 @@ namespace SchoolManagementSystem.Data
         public T GetById(int id)
         {
             return _dbConnector.Set<T>().Find(id);
+        }
+
+        public List<T> GetList()
+        {
+            return _dbConnector.Set<T>().ToList();
         }
     }
 }

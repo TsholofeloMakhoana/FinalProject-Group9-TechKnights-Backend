@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace SchoolManagementSystem.Data
 {
     public interface IRepositoryBase<T>  where T : class
@@ -10,5 +12,7 @@ namespace SchoolManagementSystem.Data
         bool Delete(int id);
 
         T GetById(int id);
+
+        List<T> GetList();
     }
 }

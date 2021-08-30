@@ -34,6 +34,9 @@
               "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj": {
                 "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj"
               },
+              "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Notification\\SchoolManagementSystem.Notification.csproj": {
+                "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Notification\\SchoolManagementSystem.Notification.csproj"
+              },
               "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj": {
                 "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj"
               }
@@ -168,8 +171,74 @@
             "projectReferences": {
               "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj": {
                 "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Data\\SchoolManagementSystem.Data.csproj"
+              },
+              "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj": {
+                "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj"
               }
             }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj",
+        "projectName": "SchoolManagementSystem.Models",
+        "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj",
+        "packagesPath": "C:\\Users\\Tshepang Messi 10\\.nuget\\packages\\",
+        "outputPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Tshepang Messi 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -200,14 +269,14 @@
         }
       }
     },
-    "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj": {
+    "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Notification\\SchoolManagementSystem.Notification.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj",
-        "projectName": "SchoolManagementSystem.Models",
-        "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\SchoolManagementSystem.Models.csproj",
+        "projectUniqueName": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Notification\\SchoolManagementSystem.Notification.csproj",
+        "projectName": "SchoolManagementSystem.Notification",
+        "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Notification\\SchoolManagementSystem.Notification.csproj",
         "packagesPath": "C:\\Users\\Tshepang Messi 10\\.nuget\\packages\\",
-        "outputPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Models\\obj\\",
+        "outputPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Notification\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

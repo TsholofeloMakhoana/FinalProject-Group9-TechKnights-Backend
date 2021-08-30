@@ -2,7 +2,6 @@ C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\bin\Debug\net5.0
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\bin\Debug\net5.0\SchoolManagementSystem.Models.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\bin\Debug\net5.0\ref\SchoolManagementSystem.Models.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\bin\Debug\net5.0\SchoolManagementSystem.Models.pdb
-C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0\SchoolManagementSystem.Models.csproj.AssemblyReference.cache
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0\SchoolManagementSystem.Models.GeneratedMSBuildEditorConfig.editorconfig
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0\SchoolManagementSystem.Models.AssemblyInfoInputs.cache
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0\SchoolManagementSystem.Models.AssemblyInfo.cs
@@ -10,3 +9,4 @@ C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0\SchoolManagementSystem.Models.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0\ref\SchoolManagementSystem.Models.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0\SchoolManagementSystem.Models.pdb
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Models\obj\Debug\net5.0\SchoolManagementSystem.Models.csproj.AssemblyReference.cache

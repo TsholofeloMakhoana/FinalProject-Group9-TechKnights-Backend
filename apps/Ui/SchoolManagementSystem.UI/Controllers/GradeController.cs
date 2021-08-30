@@ -1,18 +1,39 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystem.Domain.Services;
+using SchoolManagementSystem.Shared;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
+
 
 namespace SchoolManagementSystem.UI.Controllers
 {
     public class GradeController : Controller
     {
-        // GET: GradeController
+
+        #region ctr
+        private readonly IGradeService _gradeService;
+        public GradeController(IGradeService gradeService)
+        {
+            _gradeService = gradeService;
+        }
+        #endregion
+
+
+
         public ActionResult Index()
         {
-            return View();
+            List<GradeViewModel> list = new List<GradeViewModel>();
+            try
+            {
+                list = _gradeService.ListAllGrades();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return View(list);
         }
 
         // GET: GradeController/Details/5
@@ -30,16 +51,28 @@ namespace SchoolManagementSystem.UI.Controllers
         // POST: GradeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(GradeViewModel model)
         {
-            try
+            if (model != null)
             {
-                return RedirectToAction(nameof(Index));
+                var sSave = _gradeService.CreateGrade(model);
+                if (sSave != null)
+                {
+                    if (sSave == HttpStatusCode.OK.ToString())
+                    {
+                        ViewBag.SuccessMessage = "Grade successfully added ";                     
+                    }
+                    if (sSave.Contains(DatabaseErrors.ErrorOccured))
+                    {
+                        ViewBag.Failed = sSave;
+                    }
+                }
+                else
+                {
+                    ViewBag.Failed = "Could not save because the grades";
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: GradeController/Edit/5

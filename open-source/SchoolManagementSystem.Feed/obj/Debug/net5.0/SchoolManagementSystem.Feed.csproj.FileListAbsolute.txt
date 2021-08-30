@@ -15,3 +15,5 @@ C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\S
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\SchoolManagementSystem.Feed.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\ref\SchoolManagementSystem.Feed.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\SchoolManagementSystem.Feed.pdb
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Shared.dll
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Shared.pdb

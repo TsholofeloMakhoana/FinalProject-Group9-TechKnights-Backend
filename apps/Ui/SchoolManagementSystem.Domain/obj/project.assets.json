@@ -1683,7 +1683,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "SchoolManagementSystem.Data": "1.0.0"
+          "Microsoft.EntityFrameworkCore": "5.0.9",
+          "SchoolManagementSystem.Data": "1.0.0",
+          "SchoolManagementSystem.Shared": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SchoolManagementSystem.Feed.dll": {}
@@ -1700,6 +1702,16 @@
         },
         "runtime": {
           "bin/placeholder/SchoolManagementSystem.Models.dll": {}
+        }
+      },
+      "SchoolManagementSystem.Notification/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/SchoolManagementSystem.Notification.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SchoolManagementSystem.Notification.dll": {}
         }
       },
       "SchoolManagementSystem.Shared/1.0.0": {
@@ -6135,6 +6147,11 @@
       "path": "../../../open-source/SchoolManagementSystem.Models/SchoolManagementSystem.Models.csproj",
       "msbuildProject": "../../../open-source/SchoolManagementSystem.Models/SchoolManagementSystem.Models.csproj"
     },
+    "SchoolManagementSystem.Notification/1.0.0": {
+      "type": "project",
+      "path": "../../../open-source/SchoolManagementSystem.Notification/SchoolManagementSystem.Notification.csproj",
+      "msbuildProject": "../../../open-source/SchoolManagementSystem.Notification/SchoolManagementSystem.Notification.csproj"
+    },
     "SchoolManagementSystem.Shared/1.0.0": {
       "type": "project",
       "path": "../../../open-source/SchoolManagementSystem.Shared/SchoolManagementSystem.Shared.csproj",
@@ -6144,6 +6161,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "SchoolManagementSystem.Feed >= 1.0.0",
+      "SchoolManagementSystem.Notification >= 1.0.0",
       "SchoolManagementSystem.Shared >= 1.0.0"
     ]
   },
@@ -6180,6 +6198,9 @@
           "projectReferences": {
             "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj": {
               "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Feed\\SchoolManagementSystem.Feed.csproj"
+            },
+            "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Notification\\SchoolManagementSystem.Notification.csproj": {
+              "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Notification\\SchoolManagementSystem.Notification.csproj"
             },
             "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj": {
               "projectPath": "C:\\2021\\Repos\\Project\\open-source\\SchoolManagementSystem.Shared\\SchoolManagementSystem.Shared.csproj"

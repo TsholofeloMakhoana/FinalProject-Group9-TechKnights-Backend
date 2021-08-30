@@ -1,18 +1,34 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystem.Shared;
+using SchoolManagementSystem.Domain.Services;
+using System.Net;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SchoolManagementSystem.UI.Controllers
 {
     public class SubjectController : Controller
     {
-        // GET: SubjectController
+        #region ctr
+        private readonly IModuleService _moduleService;
+        public SubjectController(IModuleService moduleService)
+        {
+            _moduleService = moduleService;
+        }
+        #endregion
         public ActionResult Index()
         {
-            return View();
+            List<ModuleViewModel> list = new List<ModuleViewModel>();
+            try
+            {
+                list = _moduleService.ListAllModule();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return View(list);
         }
 
         // GET: SubjectController/Details/5
@@ -21,26 +37,33 @@ namespace SchoolManagementSystem.UI.Controllers
             return View();
         }
 
-        // GET: SubjectController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SubjectController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ModuleViewModel model)
         {
-            try
+            if (model != null)
             {
-                return RedirectToAction(nameof(Index));
+                var sSave = _moduleService.CreateModule(model);
+                if (sSave != null)
+                {
+                    if (sSave == HttpStatusCode.OK.ToString())
+                    {
+                        ViewBag.SuccessMessage = "Module successfully added ";
+                    }
+                    if (sSave.Contains(DatabaseErrors.ErrorOccured))
+                    {
+                        ViewBag.Failed = sSave;
+                    }
+                }
+                else
+                {
+                    ViewBag.Failed = "Could not save because the grades";
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
+
+    
 
         // GET: SubjectController/Edit/5
         public ActionResult Edit(int id)
