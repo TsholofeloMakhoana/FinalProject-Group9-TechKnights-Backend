@@ -38,6 +38,7 @@ namespace SchoolManagementSystem.UI
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddDbContext<SchoolManagementDbConnector>(options => options.UseSqlServer(Configuration.GetConnectionString("SchoolManagementSystemUIContextConnection")));
+            
             services.AddControllers();
             services.AddControllersWithViews();
         }

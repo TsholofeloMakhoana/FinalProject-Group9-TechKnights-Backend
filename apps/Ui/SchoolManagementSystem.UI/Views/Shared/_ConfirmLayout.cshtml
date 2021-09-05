@@ -34,17 +34,11 @@
 <!-- end: HEAD -->
 <!-- start: BODY -->
 <body class="login">
-    <!-- start: LOGIN -->
-    <div class="row">
-        <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-            <div class="logo margin-top-30">
-                <img src="~/cssjs/assets/images/logo.png" alt="TechKnight Team" />
-            </div>
-            <div class="box-login">
-                @RenderBody()
-
-                <div class="pull-left">
-                    &copy; <span class="current-year"></span><span class="text-bold text-uppercase">SchoolManagementSystem </span>. <span>TechKnight Team</span>
+      <div class="error-full-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 page-error">
+                    @RenderBody()
                 </div>
             </div>
         </div>
@@ -57,9 +51,7 @@
     <script src="~/cssjs/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="~/cssjs/vendor/switchery/switchery.min.js"></script>
 
-    <script src="~/cssjs/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="~/cssjs/assets/js/main.js"></script>
-    <script src="~/cssjs/assets/js/login.js"></script>
     <script>
         jQuery(document).ready(function () {
             Main.init();

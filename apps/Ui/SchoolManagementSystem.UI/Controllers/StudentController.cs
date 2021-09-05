@@ -7,9 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchoolManagementSystem.UI.Controllers
 {
+
+    [Authorize]
     public class StudentController : Controller
     {
 
@@ -43,29 +46,21 @@ namespace SchoolManagementSystem.UI.Controllers
         {
             if (model is not null)
             {
-                try
-                {
-                    model.ApplicationStatus = Status.InProcess.ToString();
-                    model.StudentNumber = "45909350";
-                   // model.genericViewModel.DateCreated = DateTime.Now;
-                    model.CreatedBy = "SystemAdmin";
-                   // model.genericViewModel.DateOfBirth = DateTime.Now;
+                model.ApplicationStatus = Status.InProcess.ToString();
+                model.StudentNumber = "45909350";
+                // model.genericViewModel.DateCreated = DateTime.Now;
+                model.CreatedBy = "SystemAdmin";
+                // model.genericViewModel.DateOfBirth = DateTime.Now;
 
-                    var create = _studentService.CreateStudent(model);
-                    if (create != null)
-                    {
-                        if (create == HttpStatusCode.OK.ToString())
-                        {
-                            ViewBag.SuccessMessage = "New student has been added successfully.";
-                            return View();
-                        }
-                        ViewBag.ValidationMessage = create;
-                    }                   
-                    return View();
-                }
-                catch
+                var create = _studentService.CreateStudent(model);
+                if (create != null)
                 {
-                    return View();
+                    if (create == HttpStatusCode.OK.ToString())
+                    {
+                        ViewBag.ValidationMessage = "New student has been added successfully.";
+                        return View();
+                    }
+                    ViewBag.ValidationMessage = create;
                 }
             }
             return View();
@@ -114,14 +109,16 @@ namespace SchoolManagementSystem.UI.Controllers
 
         public ActionResult List()
         {
+            List<StudentViewModel> list = new List<StudentViewModel>();
             try
             {
-                return View();
+                list = _studentService.GetAllStudents();
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ViewBag.ValidationMessage = DatabaseErrors.ErrorOccured;
             }
+            return View(list);
         }
     }
 }

@@ -5,9 +5,11 @@ using SchoolManagementSystem.Domain.Services;
 using System.Net;
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchoolManagementSystem.UI.Controllers
 {
+    [Authorize]
     public class SubjectController : Controller
     {
         #region ctr

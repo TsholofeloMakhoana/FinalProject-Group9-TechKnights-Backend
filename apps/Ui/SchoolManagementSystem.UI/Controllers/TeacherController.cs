@@ -1,15 +1,27 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystem.Domain.Services;
+using SchoolManagementSystem.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace SchoolManagementSystem.UI.Controllers
 {
+
+    [Authorize]
     public class TeacherController : Controller
     {
-        // GET: TeacherController
+        #region ctr
+        private readonly ITeacherService _teacherService;
+        public TeacherController(ITeacherService teacherService)
+        {
+            _teacherService = teacherService;
+        }
+        #endregion
         public ActionResult Index()
         {
             return View();
@@ -30,16 +42,23 @@ namespace SchoolManagementSystem.UI.Controllers
         // POST: TeacherController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(TeacherViewModel model)
         {
-            try
+            if (model is not null)
             {
-                return RedirectToAction(nameof(Index));
+                model.CreatedBy = "SystemAdmin";
+                var create = _teacherService.CreateTeacher(model);
+                if (create != null)
+                {
+                    if (create == HttpStatusCode.OK.ToString())
+                    {
+                        ViewBag.ValidationMessage = "New Teacher has been added successfully.";
+                        return View();
+                    }
+                    ViewBag.ValidationMessage = create;
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         // GET: TeacherController/Edit/5

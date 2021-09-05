@@ -17,11 +17,37 @@ namespace SchoolManagementSystem.Domain.Engine
                 return "Please provide ID Number or Passport";
             if (string.IsNullOrEmpty(model.Firstname))
                 return "Please provide firstname";
-
-
+            return HttpStatusCode.OK.ToString();
+        }
+        public static string ValidateParentString(ParentViewModel model)
+        {
+            if (string.IsNullOrEmpty(model.Firstname))
+                return "Please provide firstname.";
+            if (string.IsNullOrEmpty(model.Surname))
+                return "Please provide surname.";
+            if (string.IsNullOrEmpty(model.CelPhoneNumber))
+                return "Please provide cellphone";
+            if (string.IsNullOrEmpty(model.IdOrPassport))
+                return "Please provide ID Number or Passport";
+            if (string.IsNullOrEmpty(model.Firstname))
+                return "Please provide firstname";
             return HttpStatusCode.OK.ToString();
         }
 
+        public static string ValidateTeacherString(TeacherViewModel model)
+        {
+            if (string.IsNullOrEmpty(model.Firstname))
+                return "Please provide firstname.";
+            if (string.IsNullOrEmpty(model.Surname))
+                return "Please provide surname.";
+            if (string.IsNullOrEmpty(model.CelPhoneNumber))
+                return "Please provide cellphone";
+            if (string.IsNullOrEmpty(model.IdOrPassport))
+                return "Please provide ID Number or Passport";
+            if (string.IsNullOrEmpty(model.Firstname))
+                return "Please provide firstname";
+            return HttpStatusCode.OK.ToString();
+        }
         public static void PhysicalEqualPostal(AddressViewModel model)
         {
 

@@ -1,6 +1,6 @@
 ﻿
 
-@model SchoolManagementSystem.Shared.StudentViewModel
+@model SchoolManagementSystem.Shared.TeacherViewModel
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,17 +10,20 @@
 <section id="page-title" class="padding-top-15 padding-bottom-15">
     <div class="row">
         <div class="col-sm-7">
-            <a href="/Student/List"> Student List </a>/ Create Student
+            <a href="/Teacher/List"> Teache List </a>/ Create Teacher
         </div>
     </div>
 </section>
 
 
+
+
 <div class="container-fluid container-fullw bg-white">
     <div class="row">
-        @using (Html.BeginForm("Create", "Student", new { @class = "smart-wizard", role = "form" }))
+        @using (Html.BeginForm("Create", "Teacher", new { @class = "smart-wizard", role = "form" }))
         {
             <div class="row">
+                <p class="text-small center text-danger">@ViewBag.ValidationMessage</p>
                 <div class="col-md-6">
                     <fieldset>
                         <legend>
@@ -64,22 +67,18 @@
                                              new SelectListItem() { Text = "Female", Value = "Female" },
                                              new SelectListItem() { Text = "Male", Value = "Male"}
                                           }, "Select Gender", new { @class = "form-control" })
-                                        @*@Html.DropDownList("Gender", Html.GetEnumSelectList<FuneralManagementSystem.Models.CommonDropdownbox.Gender>(), "Select Gender", new { @class = "form-control" })*@
-                                        @*<select id="Gender" name="Gender" class="form-control" required></select>*@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>
-                                            IsSouthAfrican
+                                            IsAfrican
                                         </label>
                                         @Html.DropDownListFor(model => model.IsSouthAfrican, new List<SelectListItem>()
                                         {
                                            new SelectListItem() { Text = "Yes", Value = "1" },
                                            new SelectListItem() { Text = "No", Value = "0"}
                                         }, "Select.....", new { @class = "form-control" })
-
-                                        @*@Html.DropDownList("IsSouthAfrican", Html.GetEnumSelectList<FuneralManagementSystem.Models.CommonDropdownbox.IsSouthAfrican>(), "Is SouthAfrican", new { @class = "form-control" })*@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -103,7 +102,14 @@
                                         <label>
                                             CountryOfBirth*
                                         </label>
-                                        <select id="CountryOfBirthId" name="CountryOfBirthId" class="form-control"></select>
+                                        @Html.DropDownListFor(model => model.CountryOfBirth, new List<SelectListItem>()
+                                  {
+                                     new SelectListItem() { Text = "South Africa", Value = "SouthAfrica" },
+                                     new SelectListItem() { Text = "Nigeria", Value = "Nigeria"},
+                                     new SelectListItem() { Text = "Ghana", Value = "Ghana" },
+                                     new SelectListItem() { Text = "Egypt", Value = "Egypt."},
+                                      new SelectListItem() { Text = "Other", Value = "Other"}
+                                  }, "Country of Birth", new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -153,7 +159,7 @@
                                     <label>
                                         Address Line 1*
                                     </label>
-                                    <input id="autocomplete" name="PhysicalAddress" onFocus="geolocate()" placeholder="Enter your address" type="text" class="form-control" />
+                                    <input id="autocomplete" name="PhysicalAddress" onFocus="geolocate()" placeholder="Enter your address" type="text" class="form-control" required="true" />
                                 </div>
                             </div>
 
@@ -213,19 +219,12 @@
                                         Postal Code*
                                     </label>
                                     <input id="postal_code" name="PhysicalPostalCode" class="form-control" readonly />
-                                    @*@Html.TextBoxFor(m => m.PhysicalPostalCode, new { @class = "form-control", required = true, type = "number" })*@
                                 </div>
                             </div>
                         </div><br />
                     </fieldset>
-
-
                 </div>
-
-
-
                 <div class="col-md-6">
-
                     <fieldset>
                         <legend>
                             Contact Information
@@ -248,7 +247,6 @@
                                         @Html.TextBoxFor(m => m.HomeTelNumber, new { @class = "form-control", type = "number" })
                                     </div>
                                 </div>
-
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="block">
@@ -279,7 +277,15 @@
                                         <label>
                                             Preferred Language
                                         </label>
-                                        @Html.TextBoxFor(m => m.StudentNumber, new { @class = "form-control" })
+                                        @Html.DropDownListFor(model => model.PreferedLanguage, new List<SelectListItem>()
+                         {
+                            new SelectListItem() { Text = "English", Value = "English" },
+                            new SelectListItem() { Text = "Swahili", Value = "Swahili"},
+                            new SelectListItem() { Text = "Omoro", Value = "Omoro"},
+                            new SelectListItem() { Text = "Zulu", Value = "Zulu"},
+                            new SelectListItem() { Text = "Hausa", Value = "Hausa"},
+                             new SelectListItem() { Text = "Other", Value = "Other"}
+                         }, "Prefered Language", new { @class = "form-control" })
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -321,7 +327,7 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label>
-                                        Address Line 1*
+                                        Address Line 1
                                     </label>
                                     @Html.TextBoxFor(m => m.PostalAddress, new { @class = "form-control" })
                                 </div>
@@ -388,10 +394,9 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Postal Code*
+                                        Postal Code
                                     </label>
                                     @Html.TextBoxFor(m => m.PostalPostalCode, new { @class = "form-control" })
-                                    @*@Html.TextBoxFor(m => m.PhysicalPostalCode, new { @class = "form-control", required = true, type = "number" })*@
                                 </div>
                             </div>
                         </div><br />

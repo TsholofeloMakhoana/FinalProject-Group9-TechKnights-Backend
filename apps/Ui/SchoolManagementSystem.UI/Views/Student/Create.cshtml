@@ -21,7 +21,7 @@
         @using (Html.BeginForm("Create", "Student", new { @class = "smart-wizard", role = "form" }))
         {
             <div class="row">
-                <p class="text-small">@ViewBag.ValidationMessage</p>
+                <p class="text-small center text-danger">@ViewBag.ValidationMessage</p>
                 <div class="col-md-6">
                     <fieldset>
                         <legend>

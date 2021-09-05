@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagementSystem.Domain.Services;
 using SchoolManagementSystem.Shared;
@@ -9,6 +10,7 @@ using System.Net;
 
 namespace SchoolManagementSystem.UI.Controllers
 {
+    [Authorize]
     public class GradeController : Controller
     {
 

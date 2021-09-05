@@ -1,15 +1,27 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystem.Domain.Services;
+using SchoolManagementSystem.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace SchoolManagementSystem.UI.Controllers
 {
+
+    [Authorize]
     public class ParentController : Controller
     {
-        // GET: ParentController
+        #region ctr
+        private readonly IParentService _parentService;
+        public ParentController(IParentService parentService)
+        {
+            _parentService = parentService;
+        }
+        #endregion
         public ActionResult Index()
         {
             return View();
@@ -21,26 +33,32 @@ namespace SchoolManagementSystem.UI.Controllers
             return View();
         }
 
-        // GET: ParentController/Create
+        #region Create Parent
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ParentController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Create(ParentViewModel model)
         {
-            try
+            if (model is not null)
             {
-                return RedirectToAction(nameof(Index));
+                model.CreatedBy = "SystemAdmin";
+                var create = _parentService.CreateParent(model);
+                if (create != null)
+                {
+                    if (create == HttpStatusCode.OK.ToString())
+                    {
+                        ViewBag.ValidationMessage = "New Parent has been added successfully.";
+                        return View();
+                    }
+                    ViewBag.ValidationMessage = create;
+                }               
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
+        #endregion
 
         // GET: ParentController/Edit/5
         public ActionResult Edit(int id)

@@ -35,7 +35,7 @@ namespace SchoolManagementSystem.Shared
         [Column(TypeName = "datetime2")]
         public DateTime? DateModified { get; set; }
         public string ModifiedBy { get; set; }
-        public int CommunicationMethod { get; set; }
+        public string CommunicationMethod { get; set; }
         public string ApplicationStatus { get; set; }
         public string Token { get; set; }
     }

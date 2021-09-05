@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Models;
 
@@ -6,14 +8,21 @@ using SchoolManagementSystem.Models;
 
 namespace SchoolManagementSystem.Data
 {
-    public class SchoolManagementDbConnector : DbContext
+
+    public class SchoolManagementDbConnector : IdentityDbContext<IdentityUser>
     {
-        public SchoolManagementDbConnector(DbContextOptions option) : base(option)
+        public SchoolManagementDbConnector(DbContextOptions<SchoolManagementDbConnector> option) : base(option)
         {
 
         }
 
-
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
+        }
         #region Teachers Student Parent Data
 
         public DbSet<StudentData> StudentData { get; set; }

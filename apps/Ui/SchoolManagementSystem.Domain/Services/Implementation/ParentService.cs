@@ -4,59 +4,64 @@ using SchoolManagementSystem.Feed;
 using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Shared;
 using System;
+using System.Net;
 
 namespace SchoolManagementSystem.Domain.Services
 {
     public class ParentService : IParentService
     {
-        private readonly RepositoryConnectionWrapper _connectionWrapper;
-        public ParentService(RepositoryConnectionWrapper connectionWrapper)
+
+        #region ctor
+        private readonly IRepositoryConnectionWrapper _connectionWrapper;
+        public ParentService(IRepositoryConnectionWrapper connectionWrapper)
         {
             _connectionWrapper = connectionWrapper;
         }
+        #endregion
 
         public string CreateParent(ParentViewModel model)
         {
             try
             {
-                var modelValidation = GenericLogic.ValidateString(null);
-                if (modelValidation != "OK")
+                if (_connectionWrapper.ParentData.IsParentExist(model.IdOrPassport))
+                    return "Parent with the same ID/Passport already exist in the system";
+
+                var modelValidation = GenericLogic.ValidateParentString(model);
+                if (modelValidation == HttpStatusCode.OK.ToString())
                 {
+                    if (model.IsPostalSameAsPhysical == true)
+                    {
+                        GenericLogic.PhysicalEqualPostal(model);
+                    }
                     var vModel = JsonConvert.DeserializeObject<ParentData>(JsonConvert.SerializeObject(model));
-                    var createParent= _connectionWrapper.ParentData.Create(vModel);
+                    var createParent = _connectionWrapper.ParentData.Create(vModel);
                     if (createParent != null)
                     {
-                        var addressModel = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(vModel));
-                        int saveTeacher = _connectionWrapper.Save();
-                        if (saveTeacher > 0)
+                        var address = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(model));
+                        var createAddress = _connectionWrapper.AddressData.Create(address);
+                        if (createAddress != null)
                         {
-                            var createAddress = _connectionWrapper.AddressData.Create(addressModel);
-                            if (createAddress != null)
+                            var stdAddress = new ParentAddressData()
                             {
-                                int saveAddress = _connectionWrapper.Save();
-                                if (saveAddress > 0)
-                                {
-                                    var stdAddress = new ParentAddressData()
-                                    {
-                                        ParantId = createParent.ParentId,
-                                        AddressId = createAddress.AddressId
-                                    };                                   
-                                    var saveAddresses = _connectionWrapper.ParentAddressData.Create(stdAddress);
-                                    if (_connectionWrapper.Save() > 0 && saveAddresses !=null)
-                                    {
-                                        return "New parent has been added successfully.";
-                                    }
-                                }
+                                ParentId = createParent.ParentId,
+                                AddressId = createAddress.AddressId
+                            };
+                            var saveAddresses = _connectionWrapper.ParentAddressData.Create(stdAddress);
+                            if (saveAddresses != null)
+                            {
+                                string fullname = model.Firstname + " " + model.Surname;
+                                //StudentNotificationHelper.StudentInProgress(model.PersonalEmailAddress, fullname, model.StudentNumber);
+                                return HttpStatusCode.OK.ToString();
                             }
                         }
                     }
-                }
-                else
-                {
-                    return modelValidation;
+                    else
+                    {
+                        return modelValidation;
+                    }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return DatabaseErrors.ErrorOccured;
             }

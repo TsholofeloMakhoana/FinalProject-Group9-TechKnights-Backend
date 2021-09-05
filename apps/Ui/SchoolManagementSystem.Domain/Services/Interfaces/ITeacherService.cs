@@ -9,5 +9,6 @@ namespace SchoolManagementSystem.Domain.Services
         string CreateTeacher(TeacherViewModel model);
 
         List<TeacherViewModel> GetTeachers();
+        int TeacherCount();
     } 
 }

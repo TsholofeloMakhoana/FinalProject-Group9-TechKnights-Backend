@@ -6,6 +6,7 @@ using SchoolManagementSystem.Notification;
 using SchoolManagementSystem.Shared;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 
 namespace SchoolManagementSystem.Domain.Services
@@ -64,9 +65,9 @@ namespace SchoolManagementSystem.Domain.Services
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                return DatabaseErrors.ErrorOccured + "--" + ex.Message;
+                return DatabaseErrors.ErrorOccured;
             }
             return null;
         }
@@ -75,6 +76,14 @@ namespace SchoolManagementSystem.Domain.Services
         public List<StudentViewModel> GetAllStudents()
         {
             return _connectionWrapper.StudentData.GetAllStudents();
+        }
+
+        public int StudentCount()
+        {
+            var stuCount = GetAllStudents().Count();
+            if (stuCount > 0)
+                return stuCount;
+            return 0;
         }
     }
 }

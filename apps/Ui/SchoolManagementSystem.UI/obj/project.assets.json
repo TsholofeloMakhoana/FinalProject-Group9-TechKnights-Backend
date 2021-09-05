@@ -2178,6 +2178,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.8",
           "Microsoft.EntityFrameworkCore": "5.0.9",
           "SchoolManagementSystem.Models": "1.0.0",
           "Z.EntityFramework.Extensions.EFCore": "5.2.6"

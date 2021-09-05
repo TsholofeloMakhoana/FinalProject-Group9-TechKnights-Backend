@@ -1,34 +1,44 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SchoolManagementSystem.Domain.Services;
 using SchoolManagementSystem.UI.Models;
 using System.Diagnostics;
 
 
 namespace SchoolManagementSystem.UI.Controllers
 {
+
+    [Authorize]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IStudentService _studentService;
+        public HomeController(IStudentService studentService)
         {
-            _logger = logger;
+            _studentService = studentService;
         }
-
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (this.User.IsInRole("Student"))
+            {
+                return Redirect("/StudentAdmin/Student/Index");
+            }
+            if (this.User.IsInRole("Parent"))
+            {
+                return Redirect("/ParentAdmin/Parent/Index");
+            }
+            if (this.User.IsInRole("Teacher"))
+            {
+                return Redirect("/TeacherAdmin/Teacher/Index");
+            }
+            if (this.User.IsInRole("SystemAdmin"))
+            {
+                ViewBag.StudentCount = _studentService.StudentCount();
+                ViewBag.TeacherCount = 0;
+                ViewBag.ParentCount = 0;
+                return View();
+            }
+            return Redirect("/identity/account/login");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SchoolManagementSystem.Models
     {
         [Key]
         public int ParentAddressId { get; set; }
-        public int ParantId { get; set; }
+        public int ParentId { get; set; }
         public int AddressId { get; set; }
     }
 }

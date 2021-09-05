@@ -159,19 +159,11 @@ C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\A
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
-C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
-C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
-C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml.g.cs
-C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml.g.cs
-C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
-C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\SetPassword.cshtml.g.cs
-C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml.g.cs
-C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml.g.cs
@@ -235,3 +227,4 @@ C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\SchoolM
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\SchoolManagementSystem.UI.genruntimeconfig.cache
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Notification.dll
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\bin\Debug\net5.0\SchoolManagementSystem.Notification.pdb
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Shared\_ConfirmLayout.cshtml.g.cs

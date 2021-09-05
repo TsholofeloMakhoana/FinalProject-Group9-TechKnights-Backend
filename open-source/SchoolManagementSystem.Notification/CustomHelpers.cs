@@ -14,15 +14,15 @@ namespace SchoolManagementSystem.Notification
         {
             var message = new MailMessage();
             message.To.Add(new MailAddress(toEmail));
-            message.From = new MailAddress("##");
+            message.From = new MailAddress("#");
             message.Subject = subject;
             message.Body = body;
             message.IsBodyHtml = true;
 
             var credential = new NetworkCredential
             {
-                UserName = "####",
-                Password = "##"
+                UserName = "#",
+                Password = "#"
             };
             var smtp = new SmtpClient
             {

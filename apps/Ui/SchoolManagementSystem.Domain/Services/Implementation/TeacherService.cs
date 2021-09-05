@@ -5,13 +5,15 @@ using SchoolManagementSystem.Models;
 using SchoolManagementSystem.Shared;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 
 namespace SchoolManagementSystem.Domain.Services
 {
     public class TeacherService : ITeacherService
     {
-        private readonly RepositoryConnectionWrapper _connectionWrapper;
-        public TeacherService(RepositoryConnectionWrapper connectionWrapper)
+        private readonly IRepositoryConnectionWrapper _connectionWrapper;
+        public TeacherService(IRepositoryConnectionWrapper connectionWrapper)
         {
             _connectionWrapper = connectionWrapper;
         }
@@ -20,44 +22,45 @@ namespace SchoolManagementSystem.Domain.Services
         {
             try
             {
-                var modelValidation = GenericLogic.ValidateString(null);
-                if (modelValidation != "OK")
+                if (_connectionWrapper.TeacherData.IsTeacherExist(model.IdOrPassport))
+                    return "Teacher with the same ID/Passport already exist in the system";
+
+                var modelValidation = GenericLogic.ValidateTeacherString(model);
+                if (modelValidation == HttpStatusCode.OK.ToString())
                 {
+                    if (model.IsPostalSameAsPhysical == true)
+                    {
+                        GenericLogic.PhysicalEqualPostal(model);
+                    }
                     var vModel = JsonConvert.DeserializeObject<TeacherData>(JsonConvert.SerializeObject(model));
                     var createTeacher= _connectionWrapper.TeacherData.Create(vModel);
                     if (createTeacher != null)
                     {
-                        var addressModel = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(vModel));
-                        int saveTeacher= _connectionWrapper.Save();
-                        if (saveTeacher > 0)
+                        var address = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(model));
+                        var createAddress = _connectionWrapper.AddressData.Create(address);
+                        if (createAddress != null)
                         {
-                            var createAddress = _connectionWrapper.AddressData.Create(addressModel);
-                            if (createAddress != null)
+                            var stdAddress = new TeacherAddressData()
                             {
-                                int saveAddress = _connectionWrapper.Save();
-                                if (saveAddress > 0)
-                                {
-                                    var stdAddress = new TeacherAddressData()
-                                    {
-                                        TeacherId = createTeacher.TeacherId,
-                                        AddressId = createAddress.AddressId
-                                    };
-                                    var saveAddresses = _connectionWrapper.TeacherAddressData.Create(stdAddress);
-                                    if (_connectionWrapper.Save() > 0 && saveAddresses != null)
-                                    {
-                                        return "New student has been added successfully.";
-                                    }
-                                }
+                                TeacherId = createTeacher.TeacherId,
+                                AddressId = createAddress.AddressId
+                            };
+                            var saveAddresses = _connectionWrapper.TeacherAddressData.Create(stdAddress);
+                            if (saveAddresses != null)
+                            {
+                                string fullname = model.Firstname + " " + model.Surname;
+                                //StudentNotificationHelper.StudentInProgress(model.PersonalEmailAddress, fullname, model.StudentNumber);
+                                return HttpStatusCode.OK.ToString();
                             }
                         }
                     }
-                }
-                else
-                {
-                    return modelValidation;
+                    else
+                    {
+                        return modelValidation;
+                    }
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 return DatabaseErrors.ErrorOccured;
             }
@@ -76,6 +79,14 @@ namespace SchoolManagementSystem.Domain.Services
                 return null;
             }
             return null;
+        }
+
+        public int TeacherCount()
+        {
+            var teaCount = GetTeachers().Count();
+            if (teaCount > 0)
+                return teaCount;
+            return 0;
         }
     }
 }

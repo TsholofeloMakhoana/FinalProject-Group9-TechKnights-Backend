@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SchoolManagementSystem.UI.Areas.StudentAdmin.Controllers
 {
     [Area("StudentAdmin")]
+    [Authorize]
     public class StudentController : Controller
     {
         public IActionResult Index()

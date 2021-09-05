@@ -42,9 +42,13 @@
         </div>
         <!-- start: FOOTER -->
         @Html.Partial("Partial/_Footer")
-        @Html.Partial("Partial/_Rightsidebar")
-        @Html.Partial("Partial/_settingbar")
-    </div>
+
+        @if (ViewContext.HttpContext.User.IsInRole("SystemAdmin"))
+        {
+            @Html.Partial("Partial/_Rightsidebar")
+        }
+            @Html.Partial("Partial/_settingbar")
+        </div>
 
     <!-- start: MAIN JAVASCRIPTS -->
     <script src="~/cssjs/vendor/jquery/jquery.min.js"></script>
