@@ -1,16 +1,14 @@
 ﻿
 @model IEnumerable<SchoolManagementSystem.Shared.GradeViewModel>
 @{
-    ViewData["Title"] = "List";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "List"; 
 }
-
 
 
 <section id="page-title" class="padding-top-15 padding-bottom-15">
     <div class="row">
         <div class="col-sm-7">
-            <a href="/Student/Index"> Index </a>/ Parent List
+            <a href="/Student/Index"> Index </a>/ Grade
         </div>
     </div>
 </section>
@@ -23,6 +21,7 @@
                     Create Grades
                 </button>
             </div>
+
             <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                 <tr>
                     <th>#GradeId</th>
@@ -30,27 +29,23 @@
                     <th>Grade Point</th>
                     <th> Total Fees</th>
                     <th class="hidden-xs"> Description</th>
-                    <th class="hidden-xs"> DateCreated</th>
                     <th class="hidden-xs"> Created By </th>
                     <th></th>
                 </tr>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@item.GradeId</td>
-                        <td> @item.Grade</td>
-                        <td>@item.GradePoint</td>
-                        <td>$@item.TotalFees</td>
-                        <td class="hidden-xs">@item.GradeDescrption</td>
-                        <td class="hidden-xs">@item.DateCreated</td>
-                        <td class="hidden-xs">@item.CreatedBy</td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.GradeId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.GradeId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.GradeId })
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>@item.GradeId</td>
+                            <td>@item.Grade</td>
+                            <td>@item.GradePoint</td>
+                            <td>@item.TotalFees</td>
+                            <td class="hidden-xs">@item.GradeDescrption</td>
+                            <td class="hidden-xs">@item.CreatedBy</td>
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.GradeId })
+                            </td>
+                        </tr>
                     }
 
                 </tbody>
@@ -89,7 +84,18 @@
                                                         <label>
                                                             Grade
                                                         </label>
-                                                        <input type="text" placeholder="Enter grades" class="form-control" name="Grade" />
+                                                        @Html.DropDownList("Grade", new List<SelectListItem>()
+                                  {
+
+                                     new SelectListItem() { Text = "Grade 1", Value = "Grade 1"},
+                                     new SelectListItem() { Text = "Grade 2", Value = "Grade 2" },
+                                     new SelectListItem() { Text = "Grade 3", Value = "Grade 3"},
+                                     new SelectListItem() { Text = "Grade 4", Value = "Grade 4" },
+                                     new SelectListItem() { Text = "Grade 5", Value = "Grade 5"},
+                                     new SelectListItem() { Text = "Grade 6", Value = "Grade 6" },
+                                     new SelectListItem() { Text = "Grade 7", Value = "Grade 7"},
+                                     new SelectListItem() { Text = "Grade 8", Value = "Grade 8"}
+                                  }, "Select grade", new { @class = "form-control", required = true })
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -97,7 +103,7 @@
                                                         <label>
                                                             Grade Points
                                                         </label>
-                                                        <input type="text" placeholder="Enter points" class="form-control" name="GradePoint" />
+                                                        <input type="number" placeholder="Enter points" class="form-control" name="GradePoint" required />
 
                                                     </div>
                                                 </div>
@@ -106,7 +112,7 @@
                                                         <label class="control-label ">
                                                             Grade Fees
                                                         </label>
-                                                        <input type="text" placeholder="Enter fees" class="form-control" name="TotalFees" />
+                                                        <input type="number" placeholder="Enter fees" class="form-control" name="TotalFees" required />
                                                     </div>
                                                 </div>
 

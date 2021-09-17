@@ -1,0 +1,15 @@
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\bin\Release\net5.0\SchoolManagementSystem.Data.deps.json
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\bin\Release\net5.0\SchoolManagementSystem.Data.dll
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\bin\Release\net5.0\ref\SchoolManagementSystem.Data.dll
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\bin\Release\net5.0\SchoolManagementSystem.Data.pdb
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\bin\Release\net5.0\SchoolManagementSystem.Models.dll
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\bin\Release\net5.0\SchoolManagementSystem.Models.pdb
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\SchoolManagementSystem.Data.csproj.AssemblyReference.cache
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\SchoolManagementSystem.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\SchoolManagementSystem.Data.AssemblyInfoInputs.cache
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\SchoolManagementSystem.Data.AssemblyInfo.cs
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\SchoolManagementSystem.Data.csproj.CoreCompileInputs.cache
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\SchoolManagementSystem.Data.csproj.CopyComplete
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\SchoolManagementSystem.Data.dll
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\ref\SchoolManagementSystem.Data.dll
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Data\obj\Release\net5.0\SchoolManagementSystem.Data.pdb

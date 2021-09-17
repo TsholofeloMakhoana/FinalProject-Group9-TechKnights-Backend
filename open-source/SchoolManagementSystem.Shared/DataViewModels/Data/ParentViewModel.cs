@@ -5,10 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchoolManagementSystem.Shared
 {
-    public class ParentViewModel : AddressViewModel
+    public class ParentViewModel 
     {
         public int ParentId { get; set; }
+        public string UserId { get; set; }
         public string Firstname { get; set; }
+        public string FullNames { get; set; }
         public string Midname { get; set; }
         public string Surname { get; set; }
         public string Title { get; set; }
@@ -35,6 +37,6 @@ namespace SchoolManagementSystem.Shared
         public DateTime? DateModified { get; set; }
         public string ModifiedBy { get; set; }
         public string CommunicationMethod { get; set; }
-      
+        public EmailAuditDataViewModel EmailAudit { get; set; }
     }
 }

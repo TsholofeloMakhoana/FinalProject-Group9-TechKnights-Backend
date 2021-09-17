@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SchoolManagementSystem.Domain.Services;
+using SchoolManagementSystem.Shared;
 using SchoolManagementSystem.UI.Models;
 using System.Diagnostics;
 
@@ -13,29 +14,34 @@ namespace SchoolManagementSystem.UI.Controllers
     public class HomeController : Controller
     {
         private readonly IStudentService _studentService;
-        public HomeController(IStudentService studentService)
+        private readonly IParentService _parentService;
+        private readonly ITeacherService _teacherService;
+        public HomeController(IStudentService studentService,
+            IParentService parentService, ITeacherService teacherService)
         {
             _studentService = studentService;
+            _parentService = parentService;
+            _teacherService = teacherService;
         }
         public IActionResult Index()
         {
-            if (this.User.IsInRole("Student"))
+            if (this.User.IsInRole(Roles.Student.ToString()))
             {
                 return Redirect("/StudentAdmin/Student/Index");
             }
-            if (this.User.IsInRole("Parent"))
+            if (this.User.IsInRole(Roles.Parent.ToString()))
             {
                 return Redirect("/ParentAdmin/Parent/Index");
             }
-            if (this.User.IsInRole("Teacher"))
+            if (this.User.IsInRole(Roles.Teacher.ToString()))
             {
                 return Redirect("/TeacherAdmin/Teacher/Index");
             }
-            if (this.User.IsInRole("SystemAdmin"))
+            if (this.User.IsInRole(Roles.SystemAdmin.ToString()))
             {
                 ViewBag.StudentCount = _studentService.StudentCount();
-                ViewBag.TeacherCount = 0;
-                ViewBag.ParentCount = 0;
+                ViewBag.TeacherCount = _teacherService.TeacherCount();
+                ViewBag.ParentCount = _parentService.ParentCount();
                 return View();
             }
             return Redirect("/identity/account/login");

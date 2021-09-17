@@ -1,0 +1,75 @@
+﻿@model List<SchoolManagementSystem.Shared.StudentViewModel>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+    <section id="page-title" class="padding-top-15 padding-bottom-15">
+        <div class="row">
+            <div class="col-sm-7">
+                <a href="/Student/Index"> Index </a>/ Assign User 
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid container-fullw bg-white">
+        <p class="text-small center text-danger">@ViewBag.ValidationMessage</p>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="over-title margin-bottom-15">Student <span class="text-bold">List</span></h5>
+                <p>
+                   Assign student to the system
+                </p>
+                <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th>FullNames</th>
+                            <th>
+                                ID/Passport
+                            </th>
+                            <th class="hidden-xs">Role</th>
+                            <th class="hidden-xs">Phone</th>
+                            <th class="hidden-xs">Email</th>
+                            <th class="hidden-xs">
+                                StudentNumber
+                            </th>
+                            <th class="hidden-xs">Address</th>
+                            <th class="hidden-xs">
+                                CreatedBy
+                            </th>
+                            <th class="hidden-xs">
+                                AssignStudent
+                            </th>                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.Firstname  @item.Surname </td>
+                            <td>@item.IdOrPassport</td>
+                            <td class="hidden-xs">Student</td>
+                            <td class="hidden-xs">@item.CelPhoneNumber</td>
+                            <td class="hidden-xs">@item.PersonalEmailAddress</td>
+                            <td class="hidden-xs">@item.StudentNumber</td>
+                            <td class="hidden-xs">@item.PhysicalAddress</td>
+                            <td class="hidden-xs">@item.CreatedBy</td>
+
+                            @if (item.ApplicationStatus == "InProcess")
+                            {
+                            <td><a href="/Identity/Account/Register?id=@item.StudentId">AssignToSystem</a></td>
+                            }
+                            else
+                            {
+                            <td><p class="text-danger">User Assigned</p></td>
+                            }                         
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end: DYNAMIC TABLE -->

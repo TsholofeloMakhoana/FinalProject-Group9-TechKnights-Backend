@@ -2,8 +2,11 @@
 using SchoolManagementSystem.Domain.Engine;
 using SchoolManagementSystem.Feed;
 using SchoolManagementSystem.Models;
+using SchoolManagementSystem.Notification;
 using SchoolManagementSystem.Shared;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 
 namespace SchoolManagementSystem.Domain.Services
@@ -23,42 +26,13 @@ namespace SchoolManagementSystem.Domain.Services
         {
             try
             {
-                if (_connectionWrapper.ParentData.IsParentExist(model.IdOrPassport))
-                    return "Parent with the same ID/Passport already exist in the system";
-
-                var modelValidation = GenericLogic.ValidateParentString(model);
-                if (modelValidation == HttpStatusCode.OK.ToString())
+                var vModel = JsonConvert.DeserializeObject<ParentData>(JsonConvert.SerializeObject(model));
+                var createParent = _connectionWrapper.ParentData.Create(vModel);
+                if (createParent != null)
                 {
-                    if (model.IsPostalSameAsPhysical == true)
-                    {
-                        GenericLogic.PhysicalEqualPostal(model);
-                    }
-                    var vModel = JsonConvert.DeserializeObject<ParentData>(JsonConvert.SerializeObject(model));
-                    var createParent = _connectionWrapper.ParentData.Create(vModel);
-                    if (createParent != null)
-                    {
-                        var address = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(model));
-                        var createAddress = _connectionWrapper.AddressData.Create(address);
-                        if (createAddress != null)
-                        {
-                            var stdAddress = new ParentAddressData()
-                            {
-                                ParentId = createParent.ParentId,
-                                AddressId = createAddress.AddressId
-                            };
-                            var saveAddresses = _connectionWrapper.ParentAddressData.Create(stdAddress);
-                            if (saveAddresses != null)
-                            {
-                                string fullname = model.Firstname + " " + model.Surname;
-                                //StudentNotificationHelper.StudentInProgress(model.PersonalEmailAddress, fullname, model.StudentNumber);
-                                return HttpStatusCode.OK.ToString();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        return modelValidation;
-                    }
+                    var address = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(model));
+                    string fullname = model.Firstname + " " + model.Surname;
+                    ParentNotificationHelper.ParentNotification(model.PersonalEmailAddress, fullname);
                 }
             }
             catch
@@ -66,6 +40,65 @@ namespace SchoolManagementSystem.Domain.Services
                 return DatabaseErrors.ErrorOccured;
             }
             return null;
+        }
+
+
+        public string IsParentExist(string studentPassportOrId)
+        {
+            if (_connectionWrapper.ParentData.IsParentExist(studentPassportOrId))
+                return "Parent with the same ID/Passport already exist in the system";
+            return HttpStatusCode.OK.ToString();
+        }
+        public string IsEmailExist(string emailAddress)
+        {
+            if (_connectionWrapper.ParentData.IsEmailExist(emailAddress))
+                return "Parent with the same email address already exist in the system.";
+            return HttpStatusCode.OK.ToString();
+        }
+        public ParentViewModel GetParent(int id)
+        {
+            return _connectionWrapper.ParentData.GetParent(id);
+        }
+
+        public List<ParentViewModel> GetAllParents()
+        {
+            return _connectionWrapper.ParentData.GetAllParents();
+        }
+
+        public int ParentCount()
+        {
+            var stuCount = GetAllParents().Count();
+            if (stuCount > 0)
+                return stuCount;
+            return 0;
+        }
+        public string UpdateParentUserId(int id, string userId)
+        {
+            var get = _connectionWrapper.ParentData.UpdateParentUserId(id, userId);
+            if (get != null)
+            {
+                return HttpStatusCode.OK.ToString();
+            }
+            return get;
+        }
+
+        public string DeleteParent(int id)
+        {
+            var update = _connectionWrapper.ParentData.DeleteParent(id);
+            if (update == HttpStatusCode.OK.ToString())
+            {
+                return update;
+            }
+            return update;
+        }
+        public string UpdateParentDetails(ParentViewModel model)
+        {
+            var update = _connectionWrapper.ParentData.UpdateParentDetails(model);
+            if (update == HttpStatusCode.OK.ToString())
+            {
+                return update;
+            }
+            return update;
         }
     }
 

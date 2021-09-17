@@ -20,20 +20,22 @@ namespace SchoolManagementSystem.Feed
         public List<ModuleViewModel> GetAllModule()
         {
             return (from m in _schoolManagementDbConnector.ModuleData
-                      join g in _schoolManagementDbConnector.GradeData on m.GradeId equals g.GradeId
-                      select new ModuleViewModel
-                      {
-                          ModuleId = m.ModuleId,
-                          GradeId = m.GradeId,
-                          Grade = g.Grade,
-                          Module = m.Module,
-                          PassPoint = m.PassPoint,
-                          Description = m.Description,
-                          DateCreated = m.DateCreated,
-                          CreatedBy = m.CreatedBy,
-                          DateModified = m.DateCreated,
-                          ModifiedBy = m.ModifiedBy
-                      }).ToList();           
+                    join g in _schoolManagementDbConnector.GradeData on m.GradeId equals g.GradeId
+                    join d in _schoolManagementDbConnector.TeacherData on m.TeacherId equals d.TeacherId
+                    select new ModuleViewModel
+                    {
+                        ModuleId = m.ModuleId,
+                        Fullnames = d.Firstname + " " + d.Surname,
+                        GradeId = m.GradeId,
+                        Grade = g.Grade,
+                        Module = m.Module,
+                        PassPoint = m.PassPoint,
+                        Description = m.Description,
+                        DateCreated = m.DateCreated,
+                        CreatedBy = m.CreatedBy,
+                        DateModified = m.DateCreated,
+                        ModifiedBy = m.ModifiedBy
+                    }).ToList();
         }
     }
 }

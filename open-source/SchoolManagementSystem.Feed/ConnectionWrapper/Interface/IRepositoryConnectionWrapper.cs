@@ -8,14 +8,17 @@ namespace SchoolManagementSystem.Feed
         IStudentRepository StudentData { get; }
         IStudentAddressRepository StudentAddressData { get; }
         ITeacherRepository TeacherData { get; }
-        ITeacherAddressRepository TeacherAddressData { get; }
-        IParentRepository ParentData { get; }
-        IParentAddressRepository ParentAddressData { get; }
+        IParentRepository ParentData { get; }   
         IAddressRepository AddressData { get; }
         #endregion
 
+
         IGradeRepository GradeData { get; }
         IModuleRepository ModuleData { get; }
+
+        IEmailAuditRepository EmailAudit { get; }
+
+        IInvoiceRepository InvoiceData { get; }
         int Save();
     }
 }

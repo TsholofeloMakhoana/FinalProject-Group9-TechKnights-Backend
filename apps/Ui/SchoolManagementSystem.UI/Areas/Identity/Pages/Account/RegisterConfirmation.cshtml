@@ -2,6 +2,7 @@
 @model RegisterConfirmationModel
 @{
     ViewData["Title"] = "Register confirmation";
+    Layout = "~/Views/Shared/_ConfirmLayout.cshtml";
 }
 
 
@@ -9,13 +10,12 @@
     if (@Model.DisplayConfirmAccountLink)
     {
         <div class="col-sm-12 page-error">
-            <div class="error-number text-red">
+            <div class="error-number text-gree">
                 200
             </div>
             <div class="error-details col-sm-6 col-sm-offset-3">
-                <h3>Oops! You are stuck at 500</h3>
+                <h3>Oops! You are at 200</h3>
                 <p class="text-danger">
-                    This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
                     Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
                 </p>
             </div>

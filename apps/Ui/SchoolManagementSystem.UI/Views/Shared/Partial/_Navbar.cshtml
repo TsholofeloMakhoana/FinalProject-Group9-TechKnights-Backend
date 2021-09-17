@@ -1,24 +1,7 @@
 ﻿<div class="sidebar app-aside" id="sidebar">
     <div class="sidebar-container perfect-scrollbar">
-        <nav>
-            <!-- start: SEARCH FORM -->
-            <div class="search-form">
-                <a class="s-open" href="#">
-                    <i class="ti-search"></i>
-                </a>
-                <form class="navbar-form" role="search">
-                    <a class="s-remove" href="#" target=".navbar-form">
-                        <i class="ti-close"></i>
-                    </a>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <button class="btn search-button" type="submit">
-                            <i class="ti-search"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <!-- end: SEARCH FORM -->
+        <nav>     
+        
             <!-- start: MAIN NAVIGATION MENU -->
             <div class="navbar-title">
                 <span>Main Navigation</span>
@@ -91,7 +74,7 @@
                         <ul class="sub-menu">
                             <li>
                                 <a href="/Parent/Index">
-                                    <span class="title">Create Parent</span>
+                                    <span class="title">Parent Home</span>
                                 </a>
                             </li>
                         </ul>
@@ -119,6 +102,18 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="">
+                        <a href="/Invoice/Index">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-clipboard"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> Finance </span>
+                                </div>
+                            </div>
+                        </a>
                     </li>
                 }
 
@@ -229,27 +224,27 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="#">
-                                    <span class="title">Student Information</span>
+                                <a href="/ParentAdmin/Parent/ParentInformation">
+                                    <span class="title">Parent Information</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/ParentAdmin/Parent/StudentAssignment">
                                     <span class="title">Assignment</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/ParentAdmin/Parent/StudentExam">
                                     <span class="title">Exams</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/ParentAdmin/Parent/StudentFinancial">
                                     <span class="title">Student Finance</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/ParentAdmin/Parent/ParentMessage">
                                     <span class="title">Messages</span>
                                 </a>
                             </li>
@@ -266,35 +261,19 @@
                                     <i class="ti-settings"></i>
                                 </div>
                                 <div class="item-inner">
-                                    <span class="title"> Setings</span><i class="icon-arrow"></i>
+                                    <span class="title"> Communication</span><i class="icon-arrow"></i>
                                 </div>
                             </div>
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="#">
+                                <a href="/SendCommunication/Index">
                                     <span class="title"> Send Email </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="title"> System Errors </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="title"> WebAPI </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="title"> User Machines </span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <span class="title"> User Activities </span>
+                                    <span class="title"> Sent Mails </span>
                                 </a>
                             </li>
                         </ul>
@@ -315,7 +294,7 @@
                                 <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Calendar </span>
+                                <span class="title"> School events </span>
                             </div>
                         </div>
                     </a>
@@ -327,7 +306,7 @@
                                 <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-folder-open-o fa-stack-1x fa-inverse"></i> </span>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Messages </span>
+                                <span class="title"> System Documentation </span>
                             </div>
                         </div>
                     </a>

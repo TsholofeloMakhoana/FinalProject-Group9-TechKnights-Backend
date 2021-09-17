@@ -38,6 +38,10 @@ namespace SchoolManagementSystem.Shared
         public string CommunicationMethod { get; set; }
         public string ApplicationStatus { get; set; }
         public string Token { get; set; }
+        public string UserId { get; set; }
+        public int GradeId { get; set; }
+        public int ParentId { get; set; }
+        public EmailAuditDataViewModel EmailAudit { get; set; }
     }
 
     public class StudentAddressViewModel

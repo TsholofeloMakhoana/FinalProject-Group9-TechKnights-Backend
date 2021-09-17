@@ -15624,8 +15624,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\SendCommunication\\SendToParent.cshtml",
+      "TargetPath": "Views\\SendCommunication\\SendToParent.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\ParentAdmin\\Views\\Parent\\StudentFinancial.cshtml",
+      "TargetPath": "Areas\\ParentAdmin\\Views\\Parent\\StudentFinancial.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15649,6 +15659,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\ParentAdmin\\Views\\Parent\\Index.cshtml",
+      "TargetPath": "Areas\\ParentAdmin\\Views\\Parent\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Teacher\\Edit.cshtml",
       "TargetPath": "Views\\Teacher\\Edit.cshtml",
       "FileKind": "mvc"
@@ -15656,6 +15671,11 @@
     {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Shared\\_ConfirmLayout.cshtml",
       "TargetPath": "Views\\Shared\\_ConfirmLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\ParentAdmin\\Views\\Parent\\ParentMessage.cshtml",
+      "TargetPath": "Areas\\ParentAdmin\\Views\\Parent\\ParentMessage.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15699,6 +15719,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\ParentAdmin\\Views\\Parent\\StudentAssignment.cshtml",
+      "TargetPath": "Areas\\ParentAdmin\\Views\\Parent\\StudentAssignment.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Teacher\\Details.cshtml",
       "TargetPath": "Views\\Teacher\\Details.cshtml",
       "FileKind": "mvc"
@@ -15706,6 +15731,16 @@
     {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Student\\Index.cshtml",
       "TargetPath": "Views\\Student\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\ParentAdmin\\Views\\Parent\\ParentInformation.cshtml",
+      "TargetPath": "Areas\\ParentAdmin\\Views\\Parent\\ParentInformation.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15719,8 +15754,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Teacher\\Delete.cshtml",
       "TargetPath": "Views\\Teacher\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\SendCommunication\\StudentCommunication.cshtml",
+      "TargetPath": "Views\\SendCommunication\\StudentCommunication.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\ParentAdmin\\Views\\Parent\\StudentExam.cshtml",
+      "TargetPath": "Areas\\ParentAdmin\\Views\\Parent\\StudentExam.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15749,6 +15799,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Invoice\\Index.cshtml",
+      "TargetPath": "Views\\Invoice\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Shared\\Partial\\_Rightsidebar.cshtml",
       "TargetPath": "Views\\Shared\\Partial\\_Rightsidebar.cshtml",
       "FileKind": "mvc"
@@ -15774,13 +15829,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\SendCommunication\\SendToTeacher.cshtml",
+      "TargetPath": "Views\\SendCommunication\\SendToTeacher.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Shared\\_LoginLayout.cshtml",
       "TargetPath": "Views\\Shared\\_LoginLayout.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\TeacherAdmin\\Views\\Teacher\\Index.cshtml",
+      "TargetPath": "Areas\\TeacherAdmin\\Views\\Teacher\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\SendCommunication\\Index.cshtml",
+      "TargetPath": "Views\\SendCommunication\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15824,6 +15894,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Teacher\\AssignTeacher.cshtml",
+      "TargetPath": "Views\\Teacher\\AssignTeacher.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
       "FileKind": "mvc"
@@ -15834,8 +15909,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\SendCommunication\\ParentCommunication.cshtml",
+      "TargetPath": "Views\\SendCommunication\\ParentCommunication.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Parent\\Index.cshtml",
       "TargetPath": "Views\\Parent\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Invoice\\CreateInvoice.cshtml",
+      "TargetPath": "Views\\Invoice\\CreateInvoice.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15909,6 +15994,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Parent\\AssignParent.cshtml",
+      "TargetPath": "Views\\Parent\\AssignParent.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -15916,6 +16006,16 @@
     {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Grade\\Index.cshtml",
       "TargetPath": "Views\\Grade\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\SendCommunication\\SendToStudent.cshtml",
+      "TargetPath": "Views\\SendCommunication\\SendToStudent.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Student\\AssignStudent.cshtml",
+      "TargetPath": "Views\\Student\\AssignStudent.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15941,6 +16041,11 @@
     {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Views\\SendCommunication\\TeacherCommunication.cshtml",
+      "TargetPath": "Views\\SendCommunication\\TeacherCommunication.cshtml",
       "FileKind": "mvc"
     }
   ],

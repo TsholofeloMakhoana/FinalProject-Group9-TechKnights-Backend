@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystem.Domain.Engine;
 using SchoolManagementSystem.Domain.Services;
 using SchoolManagementSystem.Shared;
 using System;
@@ -17,9 +18,12 @@ namespace SchoolManagementSystem.UI.Controllers
     {
         #region ctr
         private readonly ITeacherService _teacherService;
-        public TeacherController(ITeacherService teacherService)
+        private readonly IEmailAuditService _emailAuditService;
+        public TeacherController(ITeacherService teacherService,
+            IEmailAuditService emailAuditService)
         {
             _teacherService = teacherService;
+            _emailAuditService = emailAuditService;
         }
         #endregion
         public ActionResult Index()
@@ -30,7 +34,15 @@ namespace SchoolManagementSystem.UI.Controllers
         // GET: TeacherController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            if (id > 0)
+            {
+                var sqlGet = _teacherService.GetTeachers(id);
+                if (sqlGet != null)
+                {
+                    return View(sqlGet);
+                }
+            }
+            return Redirect("/Teacher/List");
         }
 
         // GET: TeacherController/Create
@@ -46,74 +58,141 @@ namespace SchoolManagementSystem.UI.Controllers
         {
             if (model is not null)
             {
-                model.CreatedBy = "SystemAdmin";
-                var create = _teacherService.CreateTeacher(model);
-                if (create != null)
+                model.CreatedBy = Roles.SystemAdmin.ToString();
+                model.IsActive = true;
+                var isIdExist = _teacherService.IsTeacherExist(model.IdOrPassport);
+                if (isIdExist != HttpStatusCode.OK.ToString())
                 {
-                    if (create == HttpStatusCode.OK.ToString())
+                    ViewBag.ValidationMessage = isIdExist;
+                    return View();
+                }
+                var isEmailExist = _teacherService.IsEmailExist(model.PersonalEmailAddress);
+                if (isIdExist != HttpStatusCode.OK.ToString())
+                {
+                    ViewBag.ValidationMessage = isEmailExist;
+                    return View();
+                }
+                var modelValidation = GenericLogic.ValidateTeacherString(model);
+                if (modelValidation == HttpStatusCode.OK.ToString())
+                {
+                    var create = _teacherService.CreateTeacher(model);
+                    if (create != null)
                     {
-                        ViewBag.ValidationMessage = "New Teacher has been added successfully.";
+                        if (int.Parse(create) > 0)
+                        {
+                            var message = "New teacher has been added successfully. Please give teacher access to the system.";
+                            TempData["ValidationMessage"] = message;
+                            TempData["Role"] = Roles.Teacher.ToString();
+                            _emailAuditService.SendEmail(int.Parse(create), "New Teacher", model.PersonalEmailAddress, Roles.SystemAdmin.ToString() + "Email", message, model.Title + " " + model.Firstname + " " + model.Surname, Roles.Teacher.ToString());
+
+                            return Redirect("/Identity/Account/Register?id=" + int.Parse(create));
+                        }
+                        ViewBag.ValidationMessage = create;
                         return View();
                     }
-                    ViewBag.ValidationMessage = create;
                 }
+                ViewBag.ValidationMessage = modelValidation;
+                return View();
             }
+            ViewBag.ValidationMessage = "Something went wrong. Please try again";
             return View();
         }
 
         // GET: TeacherController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            if (id > 0)
+            {
+                var sqlGet = _teacherService.GetTeachers(id);
+                if (sqlGet != null)
+                {
+                    return View(sqlGet);
+                }
+            }
+            return Redirect("/Teacher/List");
         }
 
         // POST: TeacherController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(TeacherViewModel model)
         {
-            try
+            if (model != null && model.TeacherId > 0)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
+                var update = _teacherService.UpdateTeacherDetails(model);
+                if (update == HttpStatusCode.OK.ToString())
+                {
+                    ViewBag.ValidationMessage = "Teacher details updated successfully";
+                    return Redirect("/Teacher/List");
+                }
+                ViewBag.ValidationMessage = update;
                 return View();
             }
+            ViewBag.ValidationMessage = DatabaseErrors.ErrorOccured;
+            return View();
         }
 
         // GET: TeacherController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            if (id > 0)
+            {
+                var sqlGet = _teacherService.GetTeachers(id);
+                if (sqlGet != null)
+                {
+                    return View(sqlGet);
+                }
+            }
+            return Redirect("/Teacher/List");
         }
 
         // POST: TeacherController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, bool isactive=true)
         {
-            try
+            if (id > 0)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
+                var update = _teacherService.DeleteTeacher(id);
+                if (update == HttpStatusCode.OK.ToString())
+                {
+                    ViewBag.ValidationMessage = "Teacher deteled successfully";
+                    return Redirect("/Teacher/List");
+                }
+                ViewBag.ValidationMessage = update;
                 return View();
             }
+            ViewBag.ValidationMessage = DatabaseErrors.ErrorOccured;
+            return View();
         }
 
 
         public ActionResult List()
         {
+            List<TeacherViewModel> list = new List<TeacherViewModel>();
             try
             {
-                return View();
+                list = _teacherService.GetTeachers();
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ViewBag.ValidationMessage = DatabaseErrors.ErrorOccured;
             }
+            return View(list);
+        }
+        public ActionResult AssignTeacher()
+        {
+            List<TeacherViewModel> list = new List<TeacherViewModel>();
+            try
+            {
+                TempData["Role"] = Roles.Teacher.ToString();
+                list = _teacherService.GetTeachers();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ValidationMessage = DatabaseErrors.ErrorOccured;
+            }
+            return View(list);
         }
     }
 }

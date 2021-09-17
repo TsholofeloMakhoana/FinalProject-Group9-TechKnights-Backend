@@ -12,6 +12,8 @@ namespace SchoolManagementSystem.Models
         public string IsDisable { get; set; }
         public string ApplicationStatus { get; set; }  
         public string Token { get; set; }
+        public int GradeId { get; set; }
+        public int ParentId { get; set; }
     }
 
     public class StudentAddressData

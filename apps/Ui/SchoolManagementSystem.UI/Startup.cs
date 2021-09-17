@@ -37,6 +37,12 @@ namespace SchoolManagementSystem.UI
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(3);
+            });
             services.AddDbContext<SchoolManagementDbConnector>(options => options.UseSqlServer(Configuration.GetConnectionString("SchoolManagementSystemUIContextConnection")));
             
             services.AddControllers();
@@ -65,6 +71,7 @@ namespace SchoolManagementSystem.UI
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();

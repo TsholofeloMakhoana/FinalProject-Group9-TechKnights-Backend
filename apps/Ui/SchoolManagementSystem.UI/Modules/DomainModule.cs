@@ -8,6 +8,9 @@ namespace SchoolManagementSystem.UI.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<InvoiceService>().As<IInvoiceService>();
+            builder.RegisterType<StudentService>().As<IStudentService>();
+            builder.RegisterType<EmailAuditService>().As<IEmailAuditService>();
             builder.RegisterType<StudentService>().As<IStudentService>();
             builder.RegisterType<ParentService>().As<IParentService>();
             builder.RegisterType<TeacherService>().As<ITeacherService>();

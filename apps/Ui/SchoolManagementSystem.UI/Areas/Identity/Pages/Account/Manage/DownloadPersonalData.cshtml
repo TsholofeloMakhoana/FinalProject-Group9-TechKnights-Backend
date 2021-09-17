@@ -3,9 +3,16 @@
 @{
     ViewData["Title"] = "Download Your Data";
     ViewData["ActivePage"] = ManageNavPages.PersonalData;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>@ViewData["Title"]</h4>
+<section id="page-title" class="padding-top-15 padding-bottom-15">
+    <div class="row">
+        <div class="col-sm-7">
+            <a href="/Home/Index">Home </a>/ Download Your Data
+        </div>
+    </div>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

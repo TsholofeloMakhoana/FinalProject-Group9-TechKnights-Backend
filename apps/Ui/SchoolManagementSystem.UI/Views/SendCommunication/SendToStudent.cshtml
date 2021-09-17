@@ -1,0 +1,151 @@
+﻿
+
+@model SchoolManagementSystem.Shared.StudentViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="page-title" class="padding-top-15 padding-bottom-15">
+    <div class="row">
+        <div class="col-sm-7">
+            <a href="/SendCommunication/Index"> Index </a>/ Student Communication
+        </div>
+    </div>
+</section>
+
+
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        @using (Html.BeginForm("SendToStudent", "SendCommunication", new { @class = "smart-wizard", role = "form" }))
+        {
+            @Html.HiddenFor(model => model.StudentId)
+            <div class="row">
+                <p class="text-small center text-danger">@ViewBag.ValidateErrorMessage</p>
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>
+                            Personal Information
+                        </legend>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>
+                                            Firstname*
+                                        </label>
+                                        @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control", @readonly = "readonly" })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>
+                                            Middlename*
+                                        </label>
+                                        @Html.TextBoxFor(m => m.Midname, new { @class = "form-control", @readonly = "readonly" })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label ">
+                                            Surname *
+                                        </label>
+                                        @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>
+                                            CelPhoneNumber
+                                        </label>
+                                        @Html.TextBoxFor(m => m.CelPhoneNumber, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>
+                                            CommunicationMethod
+                                        </label>
+                                        @Html.TextBoxFor(m => m.CommunicationMethod, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            ID/Passport
+                                        </label>
+                                        @Html.TextBoxFor(m => m.IdOrPassport, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>
+                                            Home Address
+                                        </label>
+                                        @Html.TextBoxFor(m => m.PhysicalAddress, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>
+                            Send Emails
+                        </legend>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>
+                                            To
+                                        </label>
+                                        @Html.TextBoxFor(m => m.PersonalEmailAddress, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="block">
+                                            Dear
+                                        </label>
+                                        @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>
+                                            Subject*
+                                        </label>
+                                        @Html.TextBoxFor(m => m.EmailAudit.EmailSubject, new { @class = "form-control", required = true })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>
+                                            Body
+                                        </label>
+                                        @Html.TextAreaFor(m => m.EmailAudit.Body, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="form-group">
+                <button id="submit" class="btn btn-primary next-step btn-wide pull-right">
+                    Send Email <i class="fa fa-arrow-circle-right"></i>
+                </button>
+            </div>
+        }
+    </div>
+</div>

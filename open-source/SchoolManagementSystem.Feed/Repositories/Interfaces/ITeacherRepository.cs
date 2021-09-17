@@ -8,12 +8,13 @@ namespace SchoolManagementSystem.Feed
     public interface ITeacherRepository : IRepositoryBase<TeacherData>
     {
         bool IsTeacherExist(string PassportOrId);
-
+        bool IsEmailExist(string emailAdd);
         List<TeacherViewModel> GetAllTeachers();
-        int TeacherCount();
+        TeacherViewModel GetTeacher(int id);
+
+        string UpdateTeacherUserId(int id, string userId);
+        string DeleteTeacher(int id);
+        string UpdateTeacherDetails(TeacherViewModel model);
     }
 
-    public interface ITeacherAddressRepository : IRepositoryBase<TeacherAddressData>
-    {
-    }
 }

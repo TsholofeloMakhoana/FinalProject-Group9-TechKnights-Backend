@@ -2,7 +2,7 @@
 
 @model SchoolManagementSystem.Shared.TeacherViewModel
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,7 +10,7 @@
 <section id="page-title" class="padding-top-15 padding-bottom-15">
     <div class="row">
         <div class="col-sm-7">
-            <a href="/Teacher/List"> Teache List </a>/ Create Teacher
+            <a href="/Teacher/List"> Teacher List </a>/ Create Teacher
         </div>
     </div>
 </section>
@@ -22,387 +22,216 @@
     <div class="row">
         @using (Html.BeginForm("Create", "Teacher", new { @class = "smart-wizard", role = "form" }))
         {
-            <div class="row">
-                <p class="text-small center text-danger">@ViewBag.ValidationMessage</p>
-                <div class="col-md-6">
-                    <fieldset>
-                        <legend>
-                            Personal Information
-                        </legend>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            Firstname*
-                                        </label>
-                                        @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control", required = true })
+        <div class="row">
+            <p class="text-small center text-danger">@ViewBag.ValidationMessage</p>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Personal Information
+                    </legend>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>
+                                        Firstname*
+                                    </label>
+                                    @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control", required = true })
 
-                                    </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            Middlename*
-                                        </label>
-                                        @Html.TextBoxFor(m => m.Midname, new { @class = "form-control", required = true })
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>
+                                        Middlename*
+                                    </label>
+                                    @Html.TextBoxFor(m => m.Midname, new { @class = "form-control", required = true })
 
-                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label ">
-                                            Surname *
-                                        </label>
-                                        @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", required = true })
-                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label ">
+                                        Surname *
+                                    </label>
+                                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", required = true })
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            Gender *
-                                        </label>
-                                        @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>()
-                                          {
-                                             new SelectListItem() { Text = "Female", Value = "Female" },
-                                             new SelectListItem() { Text = "Male", Value = "Male"}
-                                          }, "Select Gender", new { @class = "form-control" })
-                                    </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>
+                                        Gender *
+                                    </label>
+                                    @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>()
+                                      {
+                                         new SelectListItem() { Text = "Female", Value = "Female" },
+                                         new SelectListItem() { Text = "Male", Value = "Male"}
+                                      }, "Select Gender", new { @class = "form-control" , required = true })
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            IsAfrican
-                                        </label>
-                                        @Html.DropDownListFor(model => model.IsSouthAfrican, new List<SelectListItem>()
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>
+                                        IsAfrican
+                                    </label>
+                                    @Html.DropDownListFor(model => model.IsSouthAfrican, new List<SelectListItem>()
+                                    {
+                                       new SelectListItem() { Text = "Yes", Value = "1" },
+                                       new SelectListItem() { Text = "No", Value = "0"}
+                                    }, "Select.....", new { @class = "form-control" , required = true })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        ID/Passport
+                                    </label>
+                                    @Html.TextBoxFor(m => m.IdOrPassport, new { @class = "form-control", required = true  })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>
+                                        Date of Birth*
+                                    </label>
+                                    <input type="date" class="form-control" name="DateOfBirth" required />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>
+                                        CountryOfBirth*
+                                    </label>
+                                    @Html.DropDownListFor(model => model.CountryOfBirth, new List<SelectListItem>()
+                              {
+                                 new SelectListItem() { Text = "South Africa", Value = "SouthAfrica" },
+                                 new SelectListItem() { Text = "Nigeria", Value = "Nigeria"},
+                                 new SelectListItem() { Text = "Ghana", Value = "Ghana" },
+                                 new SelectListItem() { Text = "Egypt", Value = "Egypt."},
+                                  new SelectListItem() { Text = "Other", Value = "Other"}
+                              }, "Country of Birth", new { @class = "form-control", required = true  })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>
+                                        Title*
+                                    </label>
+                                    @Html.DropDownListFor(model => model.Title, new List<SelectListItem>()
                                         {
-                                           new SelectListItem() { Text = "Yes", Value = "1" },
-                                           new SelectListItem() { Text = "No", Value = "0"}
-                                        }, "Select.....", new { @class = "form-control" })
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">
-                                            ID/Passport
-                                        </label>
-                                        @Html.TextBoxFor(m => m.IdOrPassport, new { @class = "form-control" })
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            Date of Birth*
-                                        </label>
-                                        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control datepicker" })
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            CountryOfBirth*
-                                        </label>
-                                        @Html.DropDownListFor(model => model.CountryOfBirth, new List<SelectListItem>()
-                                  {
-                                     new SelectListItem() { Text = "South Africa", Value = "SouthAfrica" },
-                                     new SelectListItem() { Text = "Nigeria", Value = "Nigeria"},
-                                     new SelectListItem() { Text = "Ghana", Value = "Ghana" },
-                                     new SelectListItem() { Text = "Egypt", Value = "Egypt."},
-                                      new SelectListItem() { Text = "Other", Value = "Other"}
-                                  }, "Country of Birth", new { @class = "form-control" })
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            Title*
-                                        </label>
-                                        @Html.DropDownListFor(model => model.Title, new List<SelectListItem>()
-                                            {
-                                               new SelectListItem() { Text = "Mr.", Value = "Mr." },
-                                               new SelectListItem() { Text = "Mrs.", Value = "Mrs"},
-                                               new SelectListItem() { Text = "Miss.", Value = "Miss" },
-                                               new SelectListItem() { Text = "Prof.", Value = "Pro."},
-                                                new SelectListItem() { Text = "Dr.", Value = "Dr."},
-                                                new SelectListItem() { Text = "Other", Value = "Other"}
-                                            }, "Select Title", new { @class = "form-control" })
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            Marital Status*
-                                        </label>
-                                        @Html.DropDownListFor(model => model.MaritalStatus, new List<SelectListItem>()
-                                        {
-                                           new SelectListItem() { Text = "Single", Value = "Single" },
-                                           new SelectListItem() { Text = "Married", Value = "Married"},
-                                           new SelectListItem() { Text = "Widowed", Value = "Widowed" },
-                                           new SelectListItem() { Text = "Separated", Value = "Separated"},
-                                            new SelectListItem() { Text = "Divorced", Value = "Divorced"},
+                                           new SelectListItem() { Text = "Mr.", Value = "Mr." },
+                                           new SelectListItem() { Text = "Mrs.", Value = "Mrs"},
+                                           new SelectListItem() { Text = "Miss.", Value = "Miss" },
+                                           new SelectListItem() { Text = "Prof.", Value = "Pro."},
+                                            new SelectListItem() { Text = "Dr.", Value = "Dr."},
                                             new SelectListItem() { Text = "Other", Value = "Other"}
-                                        }, "Select MaritalStatus", new { @class = "form-control" })
-                                    </div>
+                                        }, "Select Title", new { @class = "form-control" , required = true })
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>
+                                        Marital Status*
+                                    </label>
+                                    @Html.DropDownListFor(model => model.MaritalStatus, new List<SelectListItem>()
+                                    {
+                                       new SelectListItem() { Text = "Single", Value = "Single" },
+                                       new SelectListItem() { Text = "Married", Value = "Married"},
+                                       new SelectListItem() { Text = "Widowed", Value = "Widowed" },
+                                       new SelectListItem() { Text = "Separated", Value = "Separated"},
+                                        new SelectListItem() { Text = "Divorced", Value = "Divorced"},
+                                        new SelectListItem() { Text = "Other", Value = "Other"}
+                                    }, "Select MaritalStatus", new { @class = "form-control", required = true  })
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>
-                            Physical Information
-                        </legend>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>
+                        Contact Information
+                    </legend>
+                    <div class="form-group">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>
-                                        Address Line 1*
-                                    </label>
-                                    <input id="autocomplete" name="PhysicalAddress" onFocus="geolocate()" placeholder="Enter your address" type="text" class="form-control" required="true" />
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        Country
-                                    </label>
-                                    <input id="country" name="PhysicalCountry" disabled class="form-control" readonly />
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Province
-                                    </label>
-                                    <input class="form-control" name="PhysicalProvince" id="administrative_area_level_1" readonly />
-                                </div>
-                            </div>
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>
-                                        City
+                                        CellNr *
                                     </label>
-                                    <input class="form-control" name="PhysicalCity" id="locality" readonly />
+                                    @Html.TextBoxFor(m => m.CelPhoneNumber, new { @class = "form-control", type = "number" , required = true })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        TelNr
+                                    </label>
+                                    @Html.TextBoxFor(m => m.HomeTelNumber, new { @class = "form-control", type = "number" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="block">
+                                        Email Address
+                                    </label>
+                                    @Html.TextBoxFor(m => m.PersonalEmailAddress, new { @class = "form-control", required = true  })
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="control-label">
-                                        Street Number
+                                    <label>
+                                        WorkTel
                                     </label>
-                                    <input id="street_number" name="PhysicalAddressLine2" class="form-control" readonly />
+                                    @Html.TextBoxFor(m => m.WorkTelNumber, new { @class = "form-control", type = "number" })
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="control-label">
-                                        Street Name
+                                    <label>
+                                        Fax
                                     </label>
-                                    <input id="route" name="PhysicalAddressLine3" class="form-control" readonly />
+                                    @Html.TextBoxFor(m => m.FaxNumber, new { @class = "form-control", type = "number" })
+                                    @*@Html.DropDownList("CommunicationMethodRefNo", Html.GetEnumSelectList<FuneralManagementSystem.Models.CommonDropdownbox.CommunicationMethod>(), "Communication Method", new { @class = "form-control" })*@
                                 </div>
                             </div>
-
-                            <div class="col-md-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Preferred Language
+                                    </label>
+                                    @Html.DropDownListFor(model => model.PreferedLanguage, new List<SelectListItem>()
+                     {
+                        new SelectListItem() { Text = "English", Value = "English" },
+                        new SelectListItem() { Text = "Swahili", Value = "Swahili"},
+                        new SelectListItem() { Text = "Omoro", Value = "Omoro"},
+                        new SelectListItem() { Text = "Zulu", Value = "Zulu"},
+                        new SelectListItem() { Text = "Hausa", Value = "Hausa"},
+                         new SelectListItem() { Text = "Other", Value = "Other"}
+                     }, "Prefered Language", new { @class = "form-control" , required = true })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">
-                                        OtherAddress
+                                        Communication Method
                                     </label>
-                                    @Html.TextBoxFor(m => m.PhysicalOther, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Postal Code*
-                                    </label>
-                                    <input id="postal_code" name="PhysicalPostalCode" class="form-control" readonly />
-                                </div>
-                            </div>
-                        </div><br />
-                    </fieldset>
-                </div>
-                <div class="col-md-6">
-                    <fieldset>
-                        <legend>
-                            Contact Information
-                        </legend>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>
-                                            CellNr *
-                                        </label>
-                                        @Html.TextBoxFor(m => m.CelPhoneNumber, new { @class = "form-control", type = "number" })
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">
-                                            TelNr
-                                        </label>
-                                        @Html.TextBoxFor(m => m.HomeTelNumber, new { @class = "form-control", type = "number" })
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="block">
-                                            Email Address
-                                        </label>
-                                        @Html.TextBoxFor(m => m.PersonalEmailAddress, new { @class = "form-control" })
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            WorkTel
-                                        </label>
-                                        @Html.TextBoxFor(m => m.WorkTelNumber, new { @class = "form-control", type = "number" })
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            Fax
-                                        </label>
-                                        @Html.TextBoxFor(m => m.FaxNumber, new { @class = "form-control", type = "number" })
-                                        @*@Html.DropDownList("CommunicationMethodRefNo", Html.GetEnumSelectList<FuneralManagementSystem.Models.CommonDropdownbox.CommunicationMethod>(), "Communication Method", new { @class = "form-control" })*@
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>
-                                            Preferred Language
-                                        </label>
-                                        @Html.DropDownListFor(model => model.PreferedLanguage, new List<SelectListItem>()
-                         {
-                            new SelectListItem() { Text = "English", Value = "English" },
-                            new SelectListItem() { Text = "Swahili", Value = "Swahili"},
-                            new SelectListItem() { Text = "Omoro", Value = "Omoro"},
-                            new SelectListItem() { Text = "Zulu", Value = "Zulu"},
-                            new SelectListItem() { Text = "Hausa", Value = "Hausa"},
-                             new SelectListItem() { Text = "Other", Value = "Other"}
-                         }, "Prefered Language", new { @class = "form-control" })
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">
-                                            Communication Method
-                                        </label>
-                                        @Html.DropDownListFor(model => model.CommunicationMethod, new List<SelectListItem>()
-                                      {
-                                         new SelectListItem() { Text = "Email", Value = "Email" },
-                                         new SelectListItem() { Text = "Phone", Value = "Phone"},
-                                          new SelectListItem() { Text = "Call", Value = "Call"},
-                                          new SelectListItem() { Text = "Other", Value = "Other"}
-                                      }, "Communication Method", new { @class = "form-control" })
-                                    </div>
+                                    @Html.DropDownListFor(model => model.CommunicationMethod, new List<SelectListItem>()
+                                  {
+                                     new SelectListItem() { Text = "Email", Value = "Email" },
+                                     new SelectListItem() { Text = "Phone", Value = "Phone"},
+                                      new SelectListItem() { Text = "Call", Value = "Call"},
+                                      new SelectListItem() { Text = "Other", Value = "Other"}
+                                  }, "Communication Method", new { @class = "form-control" , required = true })
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
-                    <fieldset>
-                        <legend>
-                            Postal Information
-                        </legend>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        IsPostalSameAsPhysical
-                                    </label>
-                                    @Html.DropDownListFor(model => model.IsPostalSameAsPhysical, new List<SelectListItem>()
-                                        {
-                                           new SelectListItem() { Text = "Yes", Value = "True" },
-                                           new SelectListItem() { Text = "No", Value = "False"}
-                                        }, "Select.....", new { @class = "form-control" })
-
-                                    @*@Html.DropDownList("IsPostalSameAsPhysical", Html.GetEnumSelectList<FuneralManagementSystem.Models.CommonDropdownbox.IsPostalSameAsPhysical>(), "IsPostalSameAsPhysical", new { @class = "form-control" })*@
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label>
-                                        Address Line 1
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalAddress, new { @class = "form-control" })
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        Country
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalCountry, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Province
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalProvince, new { @class = "form-control" })
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        City
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalCity, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        Region
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalRegion, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Street Number
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalAddressLine2, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Street Name
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalAddressLine3, new { @class = "form-control" })
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        OtherAddress
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalAddress, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Postal Code
-                                    </label>
-                                    @Html.TextBoxFor(m => m.PostalPostalCode, new { @class = "form-control" })
-                                </div>
-                            </div>
-                        </div><br />
-                    </fieldset>
-                </div>
+                    </div>
+                </fieldset>
             </div>
+        </div>
 
             <div class="form-group">
                 <button id="submit" class="btn btn-primary next-step btn-wide pull-right">
@@ -412,5 +241,3 @@
         }
     </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGTCuQbgKFn9O16P6BE-A-gaGSiMTEtI&libraries=places&callback=initAutocomplete" async defer></script>
-<script src="~/js/GetTheAddress.js"></script>
