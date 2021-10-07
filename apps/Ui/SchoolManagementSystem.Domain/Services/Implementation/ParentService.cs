@@ -30,9 +30,9 @@ namespace SchoolManagementSystem.Domain.Services
                 var createParent = _connectionWrapper.ParentData.Create(vModel);
                 if (createParent != null)
                 {
-                    var address = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(model));
                     string fullname = model.Firstname + " " + model.Surname;
                     ParentNotificationHelper.ParentNotification(model.PersonalEmailAddress, fullname);
+                    return createParent.ParentId.ToString();
                 }
             }
             catch

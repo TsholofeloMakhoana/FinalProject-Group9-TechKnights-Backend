@@ -249,3 +249,4 @@ C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\V
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\SchoolManagementSystem.UI.MvcApplicationPartsAssemblyInfo.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Invoice\CreateInvoice.cshtml.g.cs
 C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Views\Invoice\Index.cshtml.g.cs
+C:\2021\Repos\Project\apps\Ui\SchoolManagementSystem.UI\obj\Debug\net5.0\Razor\Areas\TeacherAdmin\Views\Teacher\TeacherMessage.cshtml.g.cs

@@ -15684,6 +15684,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\TeacherAdmin\\Views\\Teacher\\TeacherMessage.cshtml",
+      "TargetPath": "Areas\\TeacherAdmin\\Views\\Teacher\\TeacherMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\2021\\Repos\\Project\\apps\\Ui\\SchoolManagementSystem.UI\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "FileKind": "mvc"
