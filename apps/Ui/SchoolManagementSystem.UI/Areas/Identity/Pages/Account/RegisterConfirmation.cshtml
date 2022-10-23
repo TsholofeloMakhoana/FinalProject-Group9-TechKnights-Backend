@@ -2,21 +2,37 @@
 @model RegisterConfirmationModel
 @{
     ViewData["Title"] = "Register confirmation";
+    Layout = "~/Views/Shared/_ConfirmLayout.cshtml";
 }
 
-<h2>@ViewData["Title"]</h2>
+
 @{
     if (@Model.DisplayConfirmAccountLink)
     {
-<p>
-    This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
-</p>
+        <div class="col-sm-12 page-error">
+            <div class="error-number text-gree">
+                200
+            </div>
+            <div class="error-details col-sm-6 col-sm-offset-3">
+                <h3>Successful! You are at 200</h3>
+                <p class="text-danger">
+                    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+                </p>
+            </div>
+        </div>
+
     }
     else
     {
-<p>
-        Please check your email to confirm your account.
-</p>
+
+        <div class="col-sm-12 page-error">
+            <div class="error-number text-green">
+                200
+            </div>
+            <div class="error-details col-sm-6 col-sm-offset-3">
+                <h3>Success! You are at 200</h3>
+                <p class="text-danger">  Please check your email to confirm your account.</p>
+            </div>
+        </div>
     }
 }

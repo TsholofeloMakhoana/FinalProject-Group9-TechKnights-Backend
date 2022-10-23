@@ -27,9 +27,9 @@ namespace SchoolManagementSystem.Data
             }
             return null;
         }
-        public object Update(T tentity)
+        public void Update()
         {
-            return _dbConnector.Set<T>().Update(tentity);
+            _dbConnector.SaveChanges();
         }
         public bool Delete(int id)
         {

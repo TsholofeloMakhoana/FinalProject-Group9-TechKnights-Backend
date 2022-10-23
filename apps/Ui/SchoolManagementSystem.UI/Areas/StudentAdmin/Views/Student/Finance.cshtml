@@ -2,6 +2,7 @@
     ViewData["Title"] = "MyFinance";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model SchoolManagementSystem.Shared.StudentViewModel
 
 <section id="page-title" class="padding-top-15 padding-bottom-15">
     <div class="row">
@@ -22,7 +23,7 @@
                     </div>
                     <div class="col-sm-6">
                         <p class="text-dark">
-                            #1233219 / 01 Jan 2014 <small class="text-light"> Lorem ipsum dolor sit amet </small>
+                            @Html.DisplayFor(m => m.StudentNumber) / @Html.DisplayFor(m => m.DateOfBirth) <small class="text-light"> @Html.DisplayFor(m => m.Firstname) @Html.DisplayFor(m => m.Surname) </small>
                         </p>
                     </div>
                 </div>
@@ -32,18 +33,18 @@
                         <h4>Client:</h4>
                         <div class="well">
                             <address>
-                                <strong class="text-dark">Customer Company, Inc.</strong>
+                                <strong class="text-dark">Student Address.</strong>
                                 <br>
-                                1 Infinite Loop
+                                @Html.DisplayFor(m => m.PhysicalAddress)
                                 <br>
-                                Cupertino, CA 95014
+                                @Html.DisplayFor(m => m.PhysicalProvince), @Html.DisplayFor(m => m.PostalAddress)
                                 <br>
-                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                                <abbr title="Phone">P:</abbr> @Html.DisplayFor(m => m.CelPhoneNumber)
                             </address>
                             <address>
                                 <strong class="text-dark">E-mail:</strong>
                                 <a href="mailto:#">
-                                    info@customer.com
+                                    @Html.DisplayFor(m => m.PersonalEmailAddress)
                                 </a>
                             </address>
                         </div>
@@ -51,12 +52,12 @@
                     <div class="col-sm-4">
                         <h4>We appreciate your business.</h4>
                         <div class="padding-bottom-30 padding-top-10 text-dark">
-                            Thanks for being a customer.
+                            Thanks for being a student.
                             A detailed summary of your invoice is below.
                             <br>
                             If you have questions, we're happy to help.
                             <br>
-                            Email support@cliptheme.com or contact us through other support channels.
+                            Email Ovasia@gmail.com or contact us through other support channels.
                         </div>
                     </div>
                     <div class="col-sm-4 pull-right">
@@ -66,16 +67,16 @@
                                 <strong>V.A.T Reg #:</strong> 233243444
                             </li>
                             <li>
-                                <strong>Account Name:</strong> Company Ltd
+                                <strong>Account Name:</strong> Ovasia Ltd
                             </li>
                             <li>
                                 <strong>SWIFT code:</strong> 1233F4343ABCDEW
                             </li>
                             <li>
-                                <strong>DATE:</strong> 01/01/2014
+                                <strong>DATE:</strong> 10/10/2021
                             </li>
                             <li>
-                                <strong>DUE:</strong> 11/02/2014
+                                <strong>DUE:</strong> 11/10/2021
                             </li>
                         </ul>
                     </div>
@@ -86,46 +87,29 @@
                             <thead>
                                 <tr>
                                     <th> # </th>
-                                    <th> Item </th>
+                                    <th> title </th>
                                     <th class="hidden-480"> Description </th>
-                                    <th class="hidden-480"> Quantity </th>
-                                    <th class="hidden-480"> Unit Cost </th>
-                                    <th> Total </th>
+                                    <th class="hidden-480"> Amount </th>
+                                    <th class="hidden-480"> AmountPaid </th>
+                                    <th class="hidden-480"> DueAmount </th>
+                                    <th> Status </th>
+                                    <th> PaymentMethod </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> Lorem </td>
-                                    <td class="hidden-480"> Drem psum dolor </td>
-                                    <td class="hidden-480"> 12 </td>
-                                    <td class="hidden-480"> $35 </td>
-                                    <td> $1152 </td>
-                                </tr>
-                                <tr>
-                                    <td> 2 </td>
-                                    <td> Ipsum </td>
-                                    <td class="hidden-480"> Consectetuer adipiscing elit </td>
-                                    <td class="hidden-480"> 21 </td>
-                                    <td class="hidden-480"> $469 </td>
-                                    <td> $6159 </td>
-                                </tr>
-                                <tr>
-                                    <td> 3 </td>
-                                    <td> Dolor </td>
-                                    <td class="hidden-480"> Olor sit amet adipiscing eli </td>
-                                    <td class="hidden-480"> 24 </td>
-                                    <td class="hidden-480"> $144 </td>
-                                    <td> $8270 </td>
-                                </tr>
-                                <tr>
-                                    <td> 4 </td>
-                                    <td> Sit </td>
-                                    <td class="hidden-480"> Laoreet dolore magna </td>
-                                    <td class="hidden-480"> 194 </td>
-                                    <td class="hidden-480"> $317 </td>
-                                    <td> $966 </td>
-                                </tr>
+                                @foreach (var item in ViewBag.Finance)
+                                {
+                                    <tr>
+                                        <td> @item.InvoiceId </td>
+                                        <td> @item.Title </td>
+                                        <td class="hidden-480"> @item.Description </td>
+                                        <td class="hidden-480"> $@item.Amount </td>
+                                        <td class="hidden-480"> $@item.AmountPaid </td>
+                                        <td class="hidden-480"> $@item.Due </td>
+                                        <td>@item.Status </td>
+                                        <td>@item.PaymentMethod </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>

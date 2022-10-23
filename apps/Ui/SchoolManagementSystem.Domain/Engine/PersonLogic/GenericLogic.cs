@@ -7,6 +7,10 @@ namespace SchoolManagementSystem.Domain.Engine
     {
         public static string ValidateString(StudentViewModel model)
         {
+            if (model.GradeId < 0)
+                return "Please select student grade.";
+            if (model.ParentId < 0)
+                return "Please select student Parent.";
             if (string.IsNullOrEmpty(model.Firstname))
                 return "Please provide firstname.";
             if (string.IsNullOrEmpty(model.Surname))
@@ -17,11 +21,68 @@ namespace SchoolManagementSystem.Domain.Engine
                 return "Please provide ID Number or Passport";
             if (string.IsNullOrEmpty(model.Firstname))
                 return "Please provide firstname";
-
+            if (model.Gender is null)
+                return "Please select gender";
+            if (model.CountryOfBirth is null)
+                return "Please select Country of Birth";
+            if (model.Title is null)
+                return "Please Select Title";
+            if (model.PreferedLanguage is null)
+                return "Please select Prefered Language";
+            if (model.CommunicationMethod is null)
+                return "Please select Communication Method";        
 
             return HttpStatusCode.OK.ToString();
         }
+        public static string ValidateParentString(ParentViewModel model)
+        {
+            if (string.IsNullOrEmpty(model.Firstname))
+                return "Please provide firstname.";
+            if (string.IsNullOrEmpty(model.Surname))
+                return "Please provide surname.";
+            if (string.IsNullOrEmpty(model.CelPhoneNumber))
+                return "Please provide cellphone";
+            if (string.IsNullOrEmpty(model.IdOrPassport))
+                return "Please provide ID Number or Passport";
+            if (string.IsNullOrEmpty(model.Firstname))
+                return "Please provide firstname";
+            if (model.Gender is null)
+                return "Please select gender";
+            if (model.CountryOfBirth is null)
+                return "Please select Country of Birth";
+            if (model.Title is null)
+                return "Please Select Title";
+            if (model.PreferedLanguage is null)
+                return "Please select Prefered Language";
+            if (model.CommunicationMethod is null)
+                return "Please select Communication Method";
+            return HttpStatusCode.OK.ToString();
+        }
 
+        public static string ValidateTeacherString(TeacherViewModel model)
+        {
+            if (string.IsNullOrEmpty(model.Firstname))
+                return "Please provide firstname.";
+            if (string.IsNullOrEmpty(model.Surname))
+                return "Please provide surname.";
+            if (string.IsNullOrEmpty(model.CelPhoneNumber))
+                return "Please provide cellphone";
+            if (string.IsNullOrEmpty(model.IdOrPassport))
+                return "Please provide ID Number or Passport";
+            if (string.IsNullOrEmpty(model.Firstname))
+                return "Please provide firstname";
+            if (model.Gender is null)
+                return "Please select gender";
+            if (model.CountryOfBirth is null)
+                return "Please select Country of Birth";
+            if (model.Title is null)
+                return "Please Select Title";
+            if (model.PreferedLanguage is null)
+                return "Please select Prefered Language";
+            if (model.CommunicationMethod is null)
+                return "Please select Communication Method";
+            return HttpStatusCode.OK.ToString();
+        }
         public static void PhysicalEqualPostal(AddressViewModel model)
         {
 

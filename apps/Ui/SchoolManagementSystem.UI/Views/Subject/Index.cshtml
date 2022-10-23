@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <section id="page-title" class="padding-top-15 padding-bottom-15">
     <div class="row">
         <div class="col-sm-7">
@@ -15,13 +14,14 @@
 </section>
 
 <div class="container-fluid container-fullw bg-white">
-    <div class="row">
+    <div class="row">     
         <div class="col-md-12">
             <div class="panel-body">
                 <button class="btn btn-primary btn-o pull-left" data-toggle="modal" data-target=".bs-example-modal-lg">
                     Create Modules
                 </button>
             </div>
+            <p class="text-large center text-blue">Please make sure you capture teacher details first.</p>
             <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                 <thead>
                     <tr>
@@ -29,11 +29,9 @@
                         <th>Module </th>
                         <th>Grade</th>
                         <th>PassMark</th>
+                        <th>Teacher Fullnames</th>
                         <th class="hidden-xs">
                             Description
-                        </th>
-                        <th class="hidden-xs">
-                            DateCreated
                         </th>
                         <th class="hidden-xs">
                             CreatedBy
@@ -51,17 +49,14 @@
                             <td>@item.Module</td>
                             <td>@item.Grade</td>
                             <td>@item.PassPoint</td>
+                            <td>@item.Fullnames</td>
                             <td class="hidden-xs">@item.Description</td>
-                            <td class="hidden-xs">@item.DateCreated</td>
                             <td class="hidden-xs">@item.CreatedBy</td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ModuleId }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.ModuleId }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ModuleId })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ModuleId, @class = "delete-link" })
                             </td>
                         </tr>
                     }
-
                 </tbody>
             </table>
         </div>
@@ -98,7 +93,7 @@
                                                         <label>
                                                             Module
                                                         </label>
-                                                        <input type="text" placeholder="Enter grades" class="form-control" name="Module" />
+                                                        <input type="text" placeholder="Enter grades" class="form-control" name="Module" required />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -106,19 +101,26 @@
                                                         <label>
                                                             Pass Points
                                                         </label>
-                                                        <input type="text" placeholder="Enter points" class="form-control" name="PassPoint" />
+                                                        <input type="number" placeholder="Enter points" class="form-control" name="PassPoint" required />
 
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label class="control-label ">
                                                             Grade
                                                         </label>
-                                                        <input type="text" placeholder="Enter fees" class="form-control" name="GradeId" />
+                                                        @Html.DropDownList("GradeId", new SelectList(ViewBag.Grade, "GradeId", "Grade"), "Select student grade", new { @class = "form-control", required = true })                                             
                                                     </div>
                                                 </div>
-
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label ">
+                                                            Teacher
+                                                        </label>
+                                                        @Html.DropDownList("TeacherId", new SelectList(ViewBag.Teacher, "TeacherId", "Fullnames"), "Select subject teacher", new { @class = "form-control", required = true })                                                  
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label class="control-label">
@@ -150,88 +152,3 @@
     </div>
 </div>
 <!-- End Create -->
-
-
-
-<!-- Start View -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Create Module</h4>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid container-fullw bg-white">
-                    <div class="row">
-
-                        @using (Html.BeginForm("Create", "Subject", new { @class = "smart-wizard", role = "form" }))
-                        {
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <fieldset>
-                                        <legend>
-                                            Creat Module
-                                        </legend>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label>
-                                                            Module
-                                                        </label>
-                                                        <input type="text" placeholder="Enter grades" class="form-control" name="Module" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label>
-                                                            Pass Points
-                                                        </label>
-                                                        <input type="text" placeholder="Enter points" class="form-control" name="PassPoint" />
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label ">
-                                                            Grade
-                                                        </label>
-                                                        <input type="text" placeholder="Enter fees" class="form-control" name="GradeId" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label class="control-label">
-                                                            Module Description
-                                                        </label>
-                                                        <textarea placeholder="Module Description" id="form-field-22" name="Description" class="form-control"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button id="submit" class="btn btn-primary next-step btn-wide pull-right">
-                                    Save changes <i class="fa fa-arrow-circle-right"></i>
-                                </button>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-o" data-dismiss="modal">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End View -->

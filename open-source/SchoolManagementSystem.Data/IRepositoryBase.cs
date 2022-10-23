@@ -7,7 +7,7 @@ namespace SchoolManagementSystem.Data
     {
         T Create(T tentity);
 
-        object Update(T tentity);
+        void Update();
 
         bool Delete(int id);
 

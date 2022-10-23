@@ -36,7 +36,6 @@ namespace SchoolManagementSystem.Domain.Services
             }
             return null;
         }
-
         public List<GradeViewModel> ListAllGrades()
         {
             return _connectionWrapper.GradeData.GetAllGrades();

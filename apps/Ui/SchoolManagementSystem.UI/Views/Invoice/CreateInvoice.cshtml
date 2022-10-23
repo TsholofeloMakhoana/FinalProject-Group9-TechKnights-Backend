@@ -1,0 +1,300 @@
+﻿
+@{
+    ViewData["Title"] = "MyFinance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="page-title" class="padding-top-15 padding-bottom-15">
+    <div class="row">
+        <div class="col-sm-7">
+            <a href="/StudentAdmin/Student/Index"> Student </a>/ My Finance
+        </div>
+    </div>
+</section>
+
+<!-- start: INVOICE -->
+<div class="container-fluid container-fullw bg-white">
+
+    <div class="panel-body">
+        <button class="btn btn-primary btn-o pull-left" data-toggle="modal" data-target=".bs-example-modal-lg">
+            Create Modules
+        </button>
+    </div>
+    <p class="text-center text-danger">@ViewBag.SuccessMessage</p>
+    <div class="row">
+          <div class="col-md-12">
+            <div class="invoice">
+                <div class="row invoice-logo">
+                    <div class="col-sm-6">
+                        <img alt="" src="assets/images/your-logo-here.png">
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="text-dark">
+                            #1233219 / 16 Sept 2021 <small class="text-light"> School Management System</small>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4>Student:</h4>
+                        <div class="well">
+                            <address>
+                                <strong class="text-dark">Student Company, Inc.</strong>
+                                <br>
+                                12 South Africa
+                                <br>
+                                Gauteng, ZA 2001
+                                <br>
+                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                            </address>
+                            <address>
+                                <strong class="text-dark">E-mail:</strong>
+                                <a href="mailto:#">
+                                    info@Ovasia.com
+                                </a>
+                            </address>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>We appreciate your business.</h4>
+                        <div class="padding-bottom-30 padding-top-10 text-dark">
+                            Thanks for being a student.
+                            A detailed summary of your invoice is below.
+                            <br>
+                            If you have questions, we're happy to help.
+                            <br>
+                            Email Ovasia@gmail.com or contact us through other support channels.
+                        </div>
+                    </div>
+                    <div class="col-sm-4 pull-right">
+                        <h4>Payment Details:</h4>
+                        <ul class="list-unstyled invoice-details padding-bottom-30 padding-top-10 text-dark">
+                            <li>
+                                <strong>V.A.T Reg #:</strong> 233243444
+                            </li>
+                            <li>
+                                <strong>Account Name:</strong> Ovasia Ltd
+                            </li>
+                            <li>
+                                <strong>SWIFT code:</strong> 1233F4343ABCDEW
+                            </li>
+                            <li>
+                                <strong>DATE:</strong> 10/10/2021
+                            </li>
+                            <li>
+                                <strong>DUE:</strong> 11/10/2021
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th> # </th>
+                                    <th> title </th>
+                                    <th class="hidden-480"> Description </th>
+                                    <th class="hidden-480"> Amount </th>
+                                    <th class="hidden-480"> AmountPaid </th>
+                                    <th class="hidden-480"> DueAmount </th>
+                                    <th> Status </th>
+                                    <th> PaymentMethod </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in ViewBag.StudentInvoiceList)
+                            {
+                                <tr>
+                                    <td> @item.InvoiceId </td>
+                                    <td> @item.Title </td>
+                                    <td class="hidden-480"> @item.Description </td>
+                                    <td class="hidden-480"> $@item.Amount </td>
+                                    <td class="hidden-480"> $@item.AmountPaid </td>
+                                    <td class="hidden-480"> $@item.Due </td>
+                                    <td>@item.Status </td>
+                                    <td>@item.PaymentMethod </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 invoice-block">
+                        <ul class="list-unstyled amounts text-small">
+                            <li>
+                                <strong>Sub-Total:</strong> $12,876
+                            </li>
+                            <li>
+                                <strong>Discount:</strong> 9.9%
+                            </li>
+                            <li>
+                                <strong>VAT:</strong> 22%
+                            </li>
+                            <li class="text-extra-large text-dark margin-top-15">
+                                <strong>Total:</strong> $11,400
+                            </li>
+                        </ul>
+                        <br>
+                        <a onclick="javascript:window.print();" class="btn btn-lg btn-primary hidden-print">
+                            Print <i class="fa fa-print"></i>
+                        </a>
+                        <a class="btn btn-lg btn-primary btn-o hidden-print">
+                            Submit Your Invoice <i class="fa fa-check"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: INVOICE -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Create Invoice</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid container-fullw bg-white">
+                    <div class="row">
+
+                        @using (Html.BeginForm("CreateInvoice", "invoice", new { @class = "smart-wizard", role = "form" }))
+                        {
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <fieldset>
+                                        <legend>
+                                            Create Invoice
+                                            <input name="StudentId" type="hidden" value="@ViewBag.StudentId"  />
+                                        </legend>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Title
+                                                        </label>
+                                                        @Html.DropDownList("Title", new List<SelectListItem>()
+                                  {
+
+                                     new SelectListItem() { Text = "School Fee", Value = "Grade Fee"},
+                                     new SelectListItem() { Text = "Grade Fee", Value = "Grade Fee" },
+                                     new SelectListItem() { Text = "Module Fee", Value = "Module Fee"},
+                                     new SelectListItem() { Text = "Book Fee", Value = "Book Fee" },
+                                     new SelectListItem() { Text = "Application Fee", Value = "Application Fee"},
+                                     new SelectListItem() { Text = "Other Fee", Value = "Other Fee" }
+
+                                  }, "Select Title", new { @class = "form-control", required = true })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Amount
+                                                        </label>
+                                                        <input type="number" placeholder="Enter Amount" class="form-control" name="Amount" required />
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label ">
+                                                            Amount Paid
+                                                        </label>
+                                                        <input type="number" placeholder="Enter AmountPaid" class="form-control" name="AmountPaid" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label ">
+                                                            Due Amount
+                                                        </label>
+                                                        <input type="number" placeholder="Enter Due Amount" class="form-control" name="Due" required />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Description
+                                                        </label>
+                                                        <textarea placeholder="Grade Description" id="form-field-22" name="Description" class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label ">
+                                                            Date Paid
+                                                        </label>
+                                                        <input type="date" placeholder="Enter Date Paid" class="form-control" name="DatePaid" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Status
+                                                        </label>
+                                                        @Html.DropDownList("Status", new List<SelectListItem>()
+                                  {
+
+                                     new SelectListItem() { Text = "Paid", Value = "Paid"},
+                                     new SelectListItem() { Text = "Not Paid", Value = "Not Paid" },
+                                     new SelectListItem() { Text = "Outstanding", Value = "Outstanding"}
+                                  }, "Select status", new { @class = "form-control", required = true })
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Payment Method
+                                                        </label>
+                                                        @Html.DropDownList("PaymentMethod", new List<SelectListItem>()
+                                  {
+
+                                     new SelectListItem() { Text = "Bank Payment", Value = "Bank Payment"},
+                                     new SelectListItem() { Text = "Manual Payment", Value = "Manual Payment" },
+                                     new SelectListItem() { Text = "Bursary Payment", Value = "Bursary Payment"}
+                                  }, "Select payment method", new { @class = "form-control", required = true })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button id="submit" class="btn btn-primary next-step btn-wide pull-right">
+                                    Save changes <i class="fa fa-arrow-circle-right"></i>
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-o" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

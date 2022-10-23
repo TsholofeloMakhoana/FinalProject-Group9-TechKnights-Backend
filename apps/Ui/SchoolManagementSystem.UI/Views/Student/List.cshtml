@@ -1,5 +1,5 @@
 ﻿
-@model SchoolManagementSystem.Shared.StudentViewModel
+@model List<SchoolManagementSystem.Shared.StudentViewModel>
 @{
     ViewData["Title"] = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,40 +15,64 @@
 </section>
 
 <div class="container-fluid container-fullw bg-white">
+    <p class="text-small center text-danger">@ViewBag.ValidationMessage</p>
     <div class="row">
         <div class="col-md-12">
             <h5 class="over-title margin-bottom-15">Student <span class="text-bold">List</span></h5>
             <p>
-               List of all approved students and new students.
+                List of all approved and new students.
             </p>
             <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                 <thead>
                     <tr>
-                        <th>Browser</th>
-                        <th class="hidden-xs">Creator</th>
+                        <th>FullNames</th>
                         <th>
-                            Cost (
-                            USD)
+                            ID/Passport
                         </th>
-                        <th class="hidden-xs"> Software license</th>
                         <th>
-                            Current
-                            layout engine
+                            IsActive
+                        </th>
+                        <th class="hidden-xs">Phone</th>
+                        <th class="hidden-xs">Email</th>
+                        <th class="hidden-xs">
+                            StudentNumber
+                        </th>
+                        <th class="hidden-xs">Status</th>
+                        <th class="hidden-xs">Address</th>
+                        <th class="hidden-xs">
+                            CreatedBy
+                        </th>
+                        <th>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach (var item in Model)
+                    {
                     <tr>
-                        <td>Amaya</td>
-                        <td class="hidden-xs">
-                            W3C,
-                            INRIA
+                        <td>@item.Firstname  @item.Surname </td>
+                        <td>@item.IdOrPassport</td>
+                        @if (item.IsActive == true)
+                        {
+                            <td><p class="text-primary">Active</p></td>
+                        }
+                        else
+                        {
+                            <td><p class="text-danger">InActive</p></td>
+                        }
+                        <td class="hidden-xs">@item.CelPhoneNumber</td>
+                        <td class="hidden-xs">@item.PersonalEmailAddress</td>
+                        <td class="hidden-xs">@item.StudentNumber</td>
+                        <td class="hidden-xs">@item.ApplicationStatus</td>
+                        <td class="hidden-xs">@item.PhysicalAddress</td>
+                        <td class="hidden-xs">@item.CreatedBy</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
                         </td>
-                        <td>Free</td>
-                        <td class="hidden-xs">W3C</td>
-                        <td>Amaya</td>
-                    </tr>            
-              
+                    </tr>
+                    }
                 </tbody>
             </table>
         </div>

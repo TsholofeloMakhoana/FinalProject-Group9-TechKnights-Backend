@@ -6,7 +6,6 @@
 
 }
 
-
     <form id="account" class="form-login" method="post">
         <fieldset>
             <legend>
@@ -15,15 +14,19 @@
             <p>
                 Please enter your name and password to log in.
             </p>
+            <div asp-validation-summary="All" class="text-small text-danger"></div>
+            <br />
             <div class="form-group">
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
                 <span class="input-icon">
-                    <input type="text" class="form-control" name="Email" placeholder="Email">
+                    <input asp-for="Input.Email" class="form-control" placeholder="Email" />
                     <i class="fa fa-user"></i>
                 </span>
             </div>
             <div class="form-group form-actions">
+                <span asp-validation-for="Input.Password" class="text-small text-danger"></span>
                 <span class="input-icon">
-                    <input type="password" class="form-control password" name="Password" placeholder="Password">
+                    <input asp-for="Input.Password" class="form-control" placeholder="Password" />
                     <i class="fa fa-lock"></i>
                     <a class="forgot" href="./ForgotPassword">
                         I forgot my password

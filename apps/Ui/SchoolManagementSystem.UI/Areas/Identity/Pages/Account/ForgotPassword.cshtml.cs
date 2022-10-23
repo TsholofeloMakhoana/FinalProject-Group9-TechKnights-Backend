@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using SchoolManagementSystem.Notification;
 
 namespace SchoolManagementSystem.UI.Areas.Identity.Pages.Account
 {
@@ -17,12 +18,12 @@ namespace SchoolManagementSystem.UI.Areas.Identity.Pages.Account
     public class ForgotPasswordModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly IEmailSender _emailSender;
+       // private readonly IEmailSender _emailSender;
 
-        public ForgotPasswordModel(UserManager<IdentityUser> userManager, IEmailSender emailSender)
+        public ForgotPasswordModel(UserManager<IdentityUser> userManager)// IEmailSender emailSender)
         {
             _userManager = userManager;
-            _emailSender = emailSender;
+           // _emailSender = emailSender;
         }
 
         [BindProperty]
@@ -55,12 +56,7 @@ namespace SchoolManagementSystem.UI.Areas.Identity.Pages.Account
                     pageHandler: null,
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
-
-                await _emailSender.SendEmailAsync(
-                    Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                SystemNotificationHelper.ResetPassword(Input.Email, Input.Email, $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }
 

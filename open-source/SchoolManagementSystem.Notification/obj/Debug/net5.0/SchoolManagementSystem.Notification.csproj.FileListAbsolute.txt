@@ -14,6 +14,7 @@ C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\bin\Debug\
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\bin\Debug\net5.0\SchoolManagementSystem.Notification.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\bin\Debug\net5.0\ref\SchoolManagementSystem.Notification.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\bin\Debug\net5.0\SchoolManagementSystem.Notification.pdb
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\net5.0\SchoolManagementSystem.Notification.csproj.AssemblyReference.cache
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\net5.0\SchoolManagementSystem.Notification.GeneratedMSBuildEditorConfig.editorconfig
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\net5.0\SchoolManagementSystem.Notification.AssemblyInfoInputs.cache
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\net5.0\SchoolManagementSystem.Notification.AssemblyInfo.cs
@@ -21,4 +22,3 @@ C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\net5.0\SchoolManagementSystem.Notification.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\net5.0\ref\SchoolManagementSystem.Notification.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\net5.0\SchoolManagementSystem.Notification.pdb
-C:\2021\Repos\Project\open-source\SchoolManagementSystem.Notification\obj\Debug\net5.0\SchoolManagementSystem.Notification.csproj.AssemblyReference.cache

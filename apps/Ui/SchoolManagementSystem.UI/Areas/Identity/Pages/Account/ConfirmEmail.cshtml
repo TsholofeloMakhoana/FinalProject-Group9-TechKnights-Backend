@@ -1,0 +1,13 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirm email";
+    Layout = "~/Views/Shared/_ConfirmLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<br />
+<a class="btn btn-primary btn-o text-center" href="./Login">
+    <i class="fa fa-chevron-circle-left"></i> Please click here to Log-In
+</a>

@@ -13,7 +13,7 @@ namespace SchoolManagementSystem.Models
 
         public bool IsSouthAfrican { get; set; }
         [Column(TypeName = "datetime2")]
-        public DateTime? DateOfBirth {get;set;} 
+        public DateTime? DateOfBirth { get; set; }
         public bool IsActive { get; set; }
         public string IdOrPassport { get; set; }
         public string HomeLanguage { get; set; }
@@ -30,6 +30,8 @@ namespace SchoolManagementSystem.Models
         [Column(TypeName = "datetime2")]
         public DateTime? DateModified { get; set; }
         public string ModifiedBy { get; set; }
-        public int CommunicationMethod { get; set; }
+        public string CommunicationMethod { get; set; }
+
+        public string UserId {get;set;}
     }
 }

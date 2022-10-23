@@ -23,17 +23,12 @@ namespace SchoolManagementSystem.Feed
 
         private ITeacherRepository _teacherData;
         public ITeacherRepository TeacherData => _teacherData ??= new TeacherRepository(_schoolManagementDbConnector);
-
-        private ITeacherAddressRepository _teacherAddressData;
-        public ITeacherAddressRepository TeacherAddressData => _teacherAddressData ??= new TeacherAddressRepository(_schoolManagementDbConnector);
-
+               
 
         private IParentRepository _parentData;
         public IParentRepository ParentData => _parentData ??= new ParentRepository(_schoolManagementDbConnector);
 
-        private IParentAddressRepository _parentAddressData;
-        public IParentAddressRepository ParentAddressData => _parentAddressData ??= new ParentAddressRepository(_schoolManagementDbConnector);
-
+      
         private IAddressRepository _addressData;
         public IAddressRepository AddressData => _addressData ??= new AddressRepository(_schoolManagementDbConnector);
         #endregion
@@ -45,6 +40,14 @@ namespace SchoolManagementSystem.Feed
 
         private IModuleRepository _moduleData;
         public IModuleRepository ModuleData => _moduleData ??= new ModuleRepository(_schoolManagementDbConnector);
+
+        private IEmailAuditRepository _emailAudit;
+        public IEmailAuditRepository EmailAudit => _emailAudit ??= new EmailAuditRepository(_schoolManagementDbConnector);
+
+
+        private IInvoiceRepository _invoiceData;
+        public IInvoiceRepository InvoiceData => _invoiceData ??= new InvoiceRepository(_schoolManagementDbConnector);
+
 
         public int Save()
         {

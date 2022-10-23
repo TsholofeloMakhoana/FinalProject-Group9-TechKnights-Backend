@@ -4,7 +4,9 @@ C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\r
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Feed.pdb
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Data.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Models.dll
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Shared.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Data.pdb
+C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Shared.pdb
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Models.pdb
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\SchoolManagementSystem.Feed.csproj.AssemblyReference.cache
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\SchoolManagementSystem.Feed.GeneratedMSBuildEditorConfig.editorconfig
@@ -15,5 +17,3 @@ C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\S
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\SchoolManagementSystem.Feed.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\ref\SchoolManagementSystem.Feed.dll
 C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\obj\Debug\net5.0\SchoolManagementSystem.Feed.pdb
-C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Shared.dll
-C:\2021\Repos\Project\open-source\SchoolManagementSystem.Feed\bin\Debug\net5.0\SchoolManagementSystem.Shared.pdb

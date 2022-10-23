@@ -2,59 +2,37 @@
 using SchoolManagementSystem.Domain.Engine;
 using SchoolManagementSystem.Feed;
 using SchoolManagementSystem.Models;
+using SchoolManagementSystem.Notification;
 using SchoolManagementSystem.Shared;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 
 namespace SchoolManagementSystem.Domain.Services
 {
     public class TeacherService : ITeacherService
     {
-        private readonly RepositoryConnectionWrapper _connectionWrapper;
-        public TeacherService(RepositoryConnectionWrapper connectionWrapper)
+
+        #region ctr
+        private readonly IRepositoryConnectionWrapper _connectionWrapper;
+        public TeacherService(IRepositoryConnectionWrapper connectionWrapper)
         {
             _connectionWrapper = connectionWrapper;
         }
+        #endregion
 
         public string CreateTeacher(TeacherViewModel model)
         {
             try
             {
-                var modelValidation = GenericLogic.ValidateString(null);
-                if (modelValidation != "OK")
+                var vModel = JsonConvert.DeserializeObject<TeacherData>(JsonConvert.SerializeObject(model));
+                var createTeacher = _connectionWrapper.TeacherData.Create(vModel);
+                if (createTeacher != null)
                 {
-                    var vModel = JsonConvert.DeserializeObject<TeacherData>(JsonConvert.SerializeObject(model));
-                    var createTeacher= _connectionWrapper.TeacherData.Create(vModel);
-                    if (createTeacher != null)
-                    {
-                        var addressModel = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(vModel));
-                        int saveTeacher= _connectionWrapper.Save();
-                        if (saveTeacher > 0)
-                        {
-                            var createAddress = _connectionWrapper.AddressData.Create(addressModel);
-                            if (createAddress != null)
-                            {
-                                int saveAddress = _connectionWrapper.Save();
-                                if (saveAddress > 0)
-                                {
-                                    var stdAddress = new TeacherAddressData()
-                                    {
-                                        TeacherId = createTeacher.TeacherId,
-                                        AddressId = createAddress.AddressId
-                                    };
-                                    var saveAddresses = _connectionWrapper.TeacherAddressData.Create(stdAddress);
-                                    if (_connectionWrapper.Save() > 0 && saveAddresses != null)
-                                    {
-                                        return "New student has been added successfully.";
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    return modelValidation;
+                    string fullname = model.Firstname + " " + model.Surname;
+                    TeacherNotificationHelper.ParentNotification(model.PersonalEmailAddress, fullname);
+                    return createTeacher.TeacherId.ToString();
                 }
             }
             catch (Exception ex)
@@ -63,19 +41,64 @@ namespace SchoolManagementSystem.Domain.Services
             }
             return null;
         }
+        public string IsTeacherExist(string studentPassportOrId)
+        {
+            if (_connectionWrapper.TeacherData.IsTeacherExist(studentPassportOrId))
+                return "Teacher with the same ID/Passport already exist in the system.";
+            return HttpStatusCode.OK.ToString();
+        }
+        public string IsEmailExist(string emailAddress)
+        {
+            if (_connectionWrapper.TeacherData.IsEmailExist(emailAddress))
+                return "Teacher with the same email address already exist in the system.";
+            return HttpStatusCode.OK.ToString();
+        }
 
         public List<TeacherViewModel> GetTeachers()
         {
-            try
-            {
-             // var getTeacher = 
+            return _connectionWrapper.TeacherData.GetAllTeachers();           
+        }
 
-            }
-            catch(Exception ex)
+        public TeacherViewModel GetTeachers(int id)
+        {
+            return _connectionWrapper.TeacherData.GetTeacher(id);
+        }
+
+        public string UpdateTeacherUserId(int id, string userId)
+        {
+            var get = _connectionWrapper.TeacherData.UpdateTeacherUserId(id, userId);
+            if (get != null)
             {
-                return null;
+                return HttpStatusCode.OK.ToString();
             }
-            return null;
+            return get;
+        }
+        public int TeacherCount()
+        {
+            var teaCount = GetTeachers().Count();
+            if (teaCount > 0)
+                return teaCount;
+            return 0;
+        }
+
+
+        public string DeleteTeacher(int id)
+        {
+            var update = _connectionWrapper.TeacherData.DeleteTeacher(id);
+            if (update == HttpStatusCode.OK.ToString())
+            {
+                return update;
+            }
+            return update;
+        }
+        public string UpdateTeacherDetails(TeacherViewModel model)
+        {
+            var update = _connectionWrapper.TeacherData.UpdateTeacherDetails(model);
+            if (update == HttpStatusCode.OK.ToString())
+            {
+                return update;
+            }
+            return update;
         }
     }
 }

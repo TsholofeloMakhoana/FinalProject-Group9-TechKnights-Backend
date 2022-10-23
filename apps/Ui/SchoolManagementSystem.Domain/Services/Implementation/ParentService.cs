@@ -2,65 +2,103 @@
 using SchoolManagementSystem.Domain.Engine;
 using SchoolManagementSystem.Feed;
 using SchoolManagementSystem.Models;
+using SchoolManagementSystem.Notification;
 using SchoolManagementSystem.Shared;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 
 namespace SchoolManagementSystem.Domain.Services
 {
     public class ParentService : IParentService
     {
-        private readonly RepositoryConnectionWrapper _connectionWrapper;
-        public ParentService(RepositoryConnectionWrapper connectionWrapper)
+
+        #region ctor
+        private readonly IRepositoryConnectionWrapper _connectionWrapper;
+        public ParentService(IRepositoryConnectionWrapper connectionWrapper)
         {
             _connectionWrapper = connectionWrapper;
         }
+        #endregion
 
         public string CreateParent(ParentViewModel model)
         {
             try
             {
-                var modelValidation = GenericLogic.ValidateString(null);
-                if (modelValidation != "OK")
+                var vModel = JsonConvert.DeserializeObject<ParentData>(JsonConvert.SerializeObject(model));
+                var createParent = _connectionWrapper.ParentData.Create(vModel);
+                if (createParent != null)
                 {
-                    var vModel = JsonConvert.DeserializeObject<ParentData>(JsonConvert.SerializeObject(model));
-                    var createParent= _connectionWrapper.ParentData.Create(vModel);
-                    if (createParent != null)
-                    {
-                        var addressModel = JsonConvert.DeserializeObject<AddressData>(JsonConvert.SerializeObject(vModel));
-                        int saveTeacher = _connectionWrapper.Save();
-                        if (saveTeacher > 0)
-                        {
-                            var createAddress = _connectionWrapper.AddressData.Create(addressModel);
-                            if (createAddress != null)
-                            {
-                                int saveAddress = _connectionWrapper.Save();
-                                if (saveAddress > 0)
-                                {
-                                    var stdAddress = new ParentAddressData()
-                                    {
-                                        ParantId = createParent.ParentId,
-                                        AddressId = createAddress.AddressId
-                                    };                                   
-                                    var saveAddresses = _connectionWrapper.ParentAddressData.Create(stdAddress);
-                                    if (_connectionWrapper.Save() > 0 && saveAddresses !=null)
-                                    {
-                                        return "New parent has been added successfully.";
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    return modelValidation;
+                    string fullname = model.Firstname + " " + model.Surname;
+                    ParentNotificationHelper.ParentNotification(model.PersonalEmailAddress, fullname);
+                    return createParent.ParentId.ToString();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return DatabaseErrors.ErrorOccured;
             }
             return null;
+        }
+
+
+        public string IsParentExist(string studentPassportOrId)
+        {
+            if (_connectionWrapper.ParentData.IsParentExist(studentPassportOrId))
+                return "Parent with the same ID/Passport already exist in the system";
+            return HttpStatusCode.OK.ToString();
+        }
+        public string IsEmailExist(string emailAddress)
+        {
+            if (_connectionWrapper.ParentData.IsEmailExist(emailAddress))
+                return "Parent with the same email address already exist in the system.";
+            return HttpStatusCode.OK.ToString();
+        }
+        public ParentViewModel GetParent(int id)
+        {
+            return _connectionWrapper.ParentData.GetParent(id);
+        }
+
+        public List<ParentViewModel> GetAllParents()
+        {
+            return _connectionWrapper.ParentData.GetAllParents();
+        }
+
+        public int ParentCount()
+        {
+            var stuCount = GetAllParents().Count();
+            if (stuCount > 0)
+                return stuCount;
+            return 0;
+        }
+        public string UpdateParentUserId(int id, string userId)
+        {
+            var get = _connectionWrapper.ParentData.UpdateParentUserId(id, userId);
+            if (get != null)
+            {
+                return HttpStatusCode.OK.ToString();
+            }
+            return get;
+        }
+
+        public string DeleteParent(int id)
+        {
+            var update = _connectionWrapper.ParentData.DeleteParent(id);
+            if (update == HttpStatusCode.OK.ToString())
+            {
+                return update;
+            }
+            return update;
+        }
+        public string UpdateParentDetails(ParentViewModel model)
+        {
+            var update = _connectionWrapper.ParentData.UpdateParentDetails(model);
+            if (update == HttpStatusCode.OK.ToString())
+            {
+                return update;
+            }
+            return update;
         }
     }
 

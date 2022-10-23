@@ -9,6 +9,8 @@ namespace SchoolManagementSystem.Shared
         [Key]
         public int ModuleId { get; set; }
         public int GradeId { get; set; }
+        public int TeacherId { get; set; }
+        public string Fullnames { get; set; }
         public string Grade { get; set; }
         public string Module { get; set; }
         public string PassPoint { get; set; }

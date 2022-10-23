@@ -1,14 +1,22 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchoolManagementSystem.Models
 {
     public class EmailAuditData
     {
+        [Key]
         public int EmailAuditId { get; set; }
-        public string Message { get; set; }
         public string Mailto { get; set; }
-        public string MailToFullnames { get; set; }
+        public string MailFrom{ get; set; }
+        public string EmailSubject { get; set; }
+        public string Body { get; set; }       
+        public string SentToSystemRole { get; set; }
+        public string DearName { get; set; }
+        public int Id { get; set; }
+
+
 
         [Column(TypeName = "datetime2")]
         public DateTime? DateCreated { get; set; }
